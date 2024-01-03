@@ -25,7 +25,6 @@ function Home() {
                 </div>
             </div>
             <div className="container2">
-
                 <div className="product-container2">
                     <div className="product-container2-media">
                         <img className='product-container2-media-content' src={productimg} alt="" />
@@ -44,10 +43,10 @@ function Home() {
                         </div>
                         <div className='product-container3-grid-text' >
                             <div className="product-container-left-grid-content">
-                                <div className="porduct-left-grid-title">
+                                <div className="porduct-grid-title">
                                     <span>For Quailty</span>
                                 </div>
-                                <div className="product-container3-left-grid-details">
+                                <div className="product-container3-grid-details">
                                     <span>
                                         Helo dsffgdr fthyrf rty şycş rtjon rtfyrog frtyrtgo9n uortyhoı voııghtyoıjn oyotghjno dftuyhugbo
                                     </span>
@@ -59,11 +58,31 @@ function Home() {
                 <div className="grid-one-container3 grid-right">
                     <div className="porduct-container3-grid grid-right-content">
                         <div className="product-container3-grid-text">
-                            Helo dsffgdr fthyrf rty şycş rtjon rtfyrog frtyrtgo9n uortyhoı voııghtyoıjn oyotghjno dftuyhugbo
+                        <div className="product-container-right-grid-content">
+                        <div className="porduct-grid-title">
+                                    <span>For Quailty</span>
+                                </div>
+                                <div className="product-container3-grid-details">
+                                    <span>
+                                        Helo dsffgdr fthyrf rty şycş rtjon rtfyrog frtyrtgo9n uortyhoı voııghtyoıjn oyotghjno dftuyhugbo
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                         <div className="product-container3-grid-media">
                             <img className="product-container3-grid-media-content" src={porductimg2} alt="" />
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container2">
+                <div className="product-container2">
+                    <div className="product-container2-media">
+                        <img className='product-container2-media-content' src={productimg} alt="" />
+                    </div>
+                    <div className="product-container2-texts">
+                        <div className="product-container2-title"> <span>Build for qulity</span></div>
+                        <div className="product-container2-text"> <span>Quality kompakct and compatible spare parts take care of your car</span></div>
                     </div>
                 </div>
             </div>
