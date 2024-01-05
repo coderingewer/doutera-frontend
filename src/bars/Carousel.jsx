@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './caoursel.css'
+import './carousel.css'
 import imageT from '../assets/Duotera/Duotera Tesla13688.jpg'
 
 function centerDiv(divId) {

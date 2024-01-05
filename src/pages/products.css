@@ -1,0 +1,355 @@
+.products {
+    display: flex;
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 182px;
+}
+
+.product-info {
+    background-color: black;
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: auto;
+    clip-path: var(--clip-bottom-right);
+    background-color: var(--color-1);
+}
+
+.product-img {
+    height: 100%;
+    width: 100%;
+}
+
+.product-features {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    background-color: transparent;
+}
+
+.product-feature {
+    display: flex;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-spacing: 5px 1rem;
+}
+
+.product-feature-content {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top: 10%;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    background-color: var(--color-1);
+}
+
+.product-feature-content span {
+    position: relative;
+    top: 12px;
+    left: 12px;
+}
+
+.container2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.product-container2 {
+    width: calc(80% - 182px);
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background-color: var(--color-2);
+}
+
+
+.product-container2::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    background-color: var(--color-1);
+}
+
+.product-container2::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    background-color: var(--color-1);
+}
+
+
+.product-container2-media {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 48px;
+    top: 0;
+    background-color: var(--color-2);
+
+}
+
+.product-container2-media-content {
+    width: 100%;
+    height: 100%;
+}
+
+
+.product-container2-texts {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    gap: 52px;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--color-2);
+}
+
+.product-container2-title {
+    height: calc(100% - 48px);
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container2-title::after {
+    content: "";
+    background-color: var(--color-1);
+    position: relative;
+    top: 5%;
+    left: 24px;
+    width: 4px;
+    height: 50px;
+    z-index: 1;
+}
+
+.product-container2-title::before {
+    content: "";
+    background-color: var(--color-1);
+    position: relative;
+    top: 79px;
+    left: -28px;
+    width: 100px;
+    height: 50px;
+    z-index: -1;
+}
+
+.product-container2-title span {
+    font-size: 36px;
+    position: relative;
+    text-align: left;
+    left: -24px;
+    color: var(--color-1);
+    font-weight: 600;
+}
+
+.product-container2-text {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-container2-text span {
+    font-size: 24px;
+}
+
+/* container 3 */
+
+.product-container3 {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    gap: 96px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-one-container3 {
+    position: relative;
+    width: 25%;
+    height: 90%;
+}
+
+.grid-one-container3::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    background-color: var(--color-1);
+
+}
+
+
+.grid-one-container3::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: -1;
+    background-color: var(--color-1);
+}
+
+
+.porduct-container3-grid {
+    position: relative;
+    background-color: var(--color-2);
+    width: calc(100% - 2px);
+    height: calc(100% - 4px);
+}
+
+
+.product-container3-grid-media {
+    width: 100%;
+    height: 60%;
+    background-color: #000000;
+}
+
+.product-container3-grid-media-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.product-container3-grid-text {
+    color: var(--color-1);
+    width: calc(100% - 48px);
+    padding: 24px;
+    height: calc(40% - 48px);
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    background-image: url(../assets/Backgrounds/dots.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.product-container3-left-grid-details {
+    position: relative;
+    width: 100%;
+    position: relative;
+}
+
+.product-container-left-grid-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(100% - 272px);
+    height: 200px;
+    gap: 24px;
+    text-align: right;
+
+
+}
+
+.product-container-right-grid-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(100% - 272px);
+    height: 200px;
+    gap: 24px;
+    text-align: left;
+
+}
+
+
+.product-container3-grid-details span {
+    font-size: 18px;
+}
+
+.porduct-grid-title {
+    position: relative;
+    width: 100%;
+}
+
+.porduct-grid-title span {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.grid-left {
+    clip-path: var(--clip-bottom-left);
+
+}
+
+.grid-left::before {
+    clip-path: var(--clip-bottom-left);
+    bottom: 0;
+    left: 0;
+}
+
+.grid-left::after {
+    top: -2px;
+    left: 0;
+}
+
+.grid-left-content {
+    left: 2px;
+    bottom: 1px;
+    top: 2px;
+    clip-path: var(--clip-bottom-left);
+}
+
+/*grid right*/
+
+.grid-right {
+    clip-path: var(--clip-top-right);
+}
+
+.grid-right-content {
+    left: 0;
+    bottom: 1px;
+    top: 2px;
+    clip-path: var(--clip-top-right);
+}
+
+.grid-right::before {
+    clip-path: var(--clip-top-right);
+    top: 0;
+    right: 0;
+}
+
+.grid-right::after {
+    bottom: 0;
+    right: 0;
+}
