@@ -1,0 +1,58 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Nesne 1",
+            "content": "Açıklama 1",
+            "type": 1
+        },
+        {
+            "id": 2,
+            "title": "Nesne 2",
+            "content": "Açıklama 2",
+            "type": 2
+        },
+        {
+            "id": 3,
+            "title": "Nesne 3",
+            "content": "Açıklama 3",
+            "type": 3
+        },
+        {
+            "id": 4,
+            "title": "Nesne 4",
+            "content": "Açıklama 4",
+            "type": 4
+        },
+        {
+            "id": 5,
+            "title": "Nesne 5",
+            "content": "Açıklama 5",
+            "type": 1
+        },
+        {
+            "id": 6,
+            "title": "Nesne 6",
+            "content": "Açıklama 6",
+            "type": 2
+        },
+        {
+            "id": 7,
+            "title": "Nesne 7",
+            "content": "Açıklama 7",
+            "type": 3
+        },
+        {
+            "id": 8,
+            "title": "Nesne 8",
+            "content": "Açıklama 8",
+            "type": 4
+        },
+        {
+            "id": 9,
+            "title": "Nesne 9",
+            "content": "Açıklama 9",
+            "type": 1
+        }
+    ]
+}

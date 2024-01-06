@@ -12,7 +12,6 @@ function centerDiv(divId) {
   const offset = (containerWidth - divWidth) / 2;
   container.scrollLeft = div.offsetLeft - offset;
 }
-
 function Carousel() {
   return (
     <div className='carousel' >

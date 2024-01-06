@@ -33,7 +33,6 @@
 .navs-in-top-bar{
     position: relative;
     margin-right: 48px;
-    display: flex;
     align-items: center;
     gap: 12px;
 }
@@ -48,4 +47,27 @@
 
 .home-style a{
     color: var(--color-2);
+}
+
+/* Geniş ekranlar için stil kuralları */
+@media only screen and (min-width: 1080px) {
+    .navs-in-top-bar{
+        display: flex;
+    }
+    .menu-btn{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 1080px) {
+    .navs-in-top-bar{
+        display: none;
+    }
+    .menu-btn{
+        background-color: transparent;
+        border: none;
+        margin-right: 48px;
+        position: relative;
+    }
 }

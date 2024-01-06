@@ -353,3 +353,19 @@
     bottom: 0;
     right: 0;
 }
+
+@media screen and (max-width: 767px) {
+    .product-features {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .product-feature {
+        max-width: 100%; /* Mobilde elemanlar genişliklerini tamamen dolduracak şekilde ayarlandı */
+        border-top: none; /* Mobilde sınırı kaldır */
+    }
+
+    .container, .container2, .product-container2, .product-container3 {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,24 @@
+.side-menu{
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    padding-top: 88px;
+    padding-bottom: 24px;
+    display: none;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-2);
+}
+
+.side-menu a{
+    color: var(--color-1);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding-top: 12px;
+}

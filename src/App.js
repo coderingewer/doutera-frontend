@@ -5,10 +5,12 @@ import Products from './pages/Products';
 import Home from './pages/Home';
 import DealerShip from './pages/DealerShip';
 import Contact from './pages/Contact';
+import SideMenu from './bars/SideMenu';
 
 function App() {
   return (
     <div className="App">
+      <SideMenu/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/modely-aksesories" element={<Products />} />
