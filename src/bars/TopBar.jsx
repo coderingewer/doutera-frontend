@@ -17,9 +17,9 @@ function TopBar(props) {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrollPosition]);
-  const linksMenu = document.getElementById("links-menu");
   const [isToggled, setToggled] = useState(false);
   const handleTogleMenu  =()=>{
+    const linksMenu = document.getElementById("links-menu");
     setToggled(!isToggled)
     isToggled ? linksMenu.style.display="flex" : linksMenu.style.display="none"
   }

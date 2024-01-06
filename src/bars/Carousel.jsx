@@ -35,18 +35,21 @@ function Carousel() {
           <div className="carousel-item-img">
             <img src={imageT} alt="" />
           </div>
-          <div className="carousel-item-text cit2  carousel-item-2-text">
+          <div className="carousel-item-text cit2 carousel-item-2-text">
             <div className="carousel-item-text-content carousel-item-2-content">
-              <div className="carousel-item-detail">
-                <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</span>
-              </div>
               <div className="carousel-item-title carousel-item-title-2">
                 <span>Tesla Model Y Aksesoires</span>
+              </div>
+              <div className="carousel-item-detail">
+                <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</span>
               </div>
             </div>
           </div>
         </div>
         <div id='3' className="carousel-item carousel-item-1 carousel-clip-right">
+          <div className="carousel-item-img carousel-item-1-img">
+            <img src={imageT} alt="" />
+          </div>
           <div className="carousel-item-text cit3  carousel-item-1-text">
             <div className="carousel-item-text-content cit3c carousel-item-1-content">
               <div className="carousel-item-title">
@@ -57,11 +60,11 @@ function Carousel() {
               </div>
             </div>
           </div>
-          <div className="carousel-item-img carousel-item-1-img">
-            <img src={imageT} alt="" />
-          </div>
         </div>
         <div id='4' className="carousel-item carousel-item-2  carousel-clip-right">
+          <div className="carousel-item-img">
+            <img src={imageT} alt="" />
+          </div>
           <div className="carousel-item-text cit4 carousel-item-2-text">
             <div className="carousel-item-text-content carousel-item-2-content">
               <div  className="carousel-item-title carousel-item-title-1">
@@ -71,9 +74,6 @@ function Carousel() {
                 <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</span>
               </div>
             </div>
-          </div>
-          <div className="carousel-item-img">
-            <img src={imageT} alt="" />
           </div>
         </div>
 
