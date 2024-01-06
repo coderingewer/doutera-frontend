@@ -67,7 +67,11 @@
     .menu-btn{
         background-color: transparent;
         border: none;
-        margin-right: 48px;
         position: relative;
+        margin-right: 12px;
+    }
+    .top-bar-logo{
+        left: 12px;
+    
     }
 }
