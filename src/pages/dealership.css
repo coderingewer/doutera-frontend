@@ -76,3 +76,17 @@
     width: 100%;
 }
 
+
+@media only screen and (min-width: 1080px) {
+   
+.dealership-form{
+    width: 25%;
+}
+}
+
+@media only screen and (max-width: 1080px) {
+   
+    .dealership-form{
+        width: 70%;
+    }
+    }

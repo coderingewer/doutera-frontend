@@ -2,12 +2,12 @@ import React from 'react';
 import duoicon from "../assets/Duotera/logo horizontal.png"
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 const MapWithMarker = () => {
-  const position = [37.573008, 44.280745];
+  const position = [38.4496027, 27.1904034];
 
   return (
     <MapContainer
       center={position}
-      zoom={5}
+      zoom={13}
       scrollWheelZoom={false}
     >
       <TileLayer

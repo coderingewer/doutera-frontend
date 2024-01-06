@@ -49,7 +49,6 @@
     color: var(--color-2);
 }
 
-/* Geniş ekranlar için stil kuralları */
 @media only screen and (min-width: 1080px) {
     .navs-in-top-bar{
         display: flex;
