@@ -191,12 +191,14 @@
         display: flex;
         flex-direction: row;
         overflow-x: scroll;
-        width: 100%;
+        width: calc(100%  - 192px);
         height: 60%;
         gap: 96px;
         scroll-behavior: smooth;
         scrollbar-width: none;
         align-items: center;
+        padding-left: 96px;
+        padding-right: 96px;
     }
 
     .carousel {
