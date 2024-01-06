@@ -30,13 +30,13 @@
 
   .home-content-title{
     position: relative;
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--color-2);
   }
 
   .home-content-subtitle{
-    font-size: 26px;
+    font-size: 16px;
     color: var(--color-2);
     font-weight: 600;
   }
@@ -46,19 +46,32 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    top: 144px;
+    top: 96px;
   }
+.home-links{
+  bottom: 48px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
+}
   .buy-now-home-btn{
-    background-color: var(--color-1);
-    color: var(--color-2);
     text-decoration: none;
-    position: absolute;
-    bottom: 144px;
-    font-size: 18px;
+    font-size: 16px;
     padding: 12px 48px 12px 48px;
     font-weight: 600;
     border-radius: 6px;
+  }
+
+  .color1{
+    background-color: var(--color-1);
+    color: var(--color-2);
+  }
+
+  .color2{
+    background-color: var(--color-2);
+    color: var(--color-1);
   }
 
   video {
@@ -69,3 +82,18 @@
     top: 0;
     left: 0;
   }
+
+
+@media only screen and (max-width: 1080px) {
+  .home-links{
+    flex-direction: column;
+  }
+ 
+}
+
+@media only screen and (min-width: 1080px) {
+  .home-links{
+    flex-direction: row;
+  }
+ 
+}

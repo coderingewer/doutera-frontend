@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./home.css"
 import backvideo from "../assets/Backgrounds/backgroundvideo.webm"
 import TopBar from '../bars/TopBar'
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +25,10 @@ function Home() {
               The best way to save your Tesla Model Y
             </span>
           </div>
-          <a target='_blank' href='https://www.github.com' className='buy-now-home-btn' >Buy Now</a>
+          <div className="home-links">
+          <Link to='modely-aksesories' className='buy-now-home-btn color2' >Review Products</Link>
+          <a target='_blank' href='https://www.github.com' className='buy-now-home-btn color1' >Buy Now</a>
+          </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>
           <source src={backvideo} type="video/webm" />
