@@ -20,12 +20,11 @@
     padding: 96px;
     height: calc(100% - 192px);
     width:  calc(100% - 192px);
-    background-color: rgba(0, 0, 0, 0.2);
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: opacity 5s ease-in-out;
+    transition: all 5s ease-in-out;
   }
 
   .home-content-title{
