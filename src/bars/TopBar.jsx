@@ -34,7 +34,8 @@ function TopBar(props) {
         <div className="navs-in-top-bar">
           <Link to="/modely-aksesories">Model Y Accessories</Link>
           <Link to="/dealership-form">Dealership</Link>
-          <Link href="/a">About Us</Link>
+          <Link to="/about-us">About Us</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <button className='menu-btn' onClick={handleTogleMenu}><img src={menuIcon} alt="" /></button>
       </div>

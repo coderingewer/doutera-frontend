@@ -1,0 +1,100 @@
+.about-us-page {
+    height: calc(100vh - 128px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    background-color: var(--color-2);
+    overflow: auto;
+}
+
+.about-us-content {
+    height: auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-1);
+    gap: 24px;
+    text-align: center;
+    background-color: var(--color-2);
+}
+
+.about-us-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.about-us-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.about-us-logo {
+    height:35px;
+    width: 200px;
+    margin-top: 24px;
+}
+
+
+.about-us-links {
+    width: 100%;
+    gap: 12px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-us-barner {
+    width: 100%;
+    height: 60%;
+    z-index: 0;
+    top: 0;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../assets/Duotera/Duotera\ Tesla13678.jpg);
+}
+
+@media only screen and (max-width: 1080px) {
+
+    .about-us-links {
+        flex-direction: column-reverse;
+
+    }
+
+
+    .about-us-content {
+        width: 70%;
+        top: 192px;
+    }
+
+    .about-us-text {
+        width: calc(100% - 48px);
+    }
+
+}
+
+@media only screen and (min-width: 1080px) {
+    .about-us-links {
+
+        flex-direction: row;
+
+    }
+
+
+    .about-us-content {
+        width: 70%;
+        top: 10%;
+    }
+
+    .about-us-text {
+        width: 80%;
+    }
+}
