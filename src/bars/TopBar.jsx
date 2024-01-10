@@ -25,14 +25,13 @@ function TopBar(props) {
   }
 
     return (
-      <div className={scrollPosition > 1000 ? "top-bar top-bar-blur" : "top-bar" + " " + props.page}
+      <div className={scrollPosition > 500 ? "top-bar top-bar-blur" : "top-bar" + " " + props.page}
       > <Link to="/">
           <div className="top-bar-logo">
             <img src={duoteralogo} alt="Duotera" />
           </div>
         </Link>
         <div className="navs-in-top-bar">
-          <Link to="/modely-aksesories">Model Y Accessories</Link>
           <Link to="/dealership-form">Dealership</Link>
           <Link to="/about-us">About Us</Link>
           <Link to="/contact">Contact</Link>

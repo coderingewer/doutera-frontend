@@ -1,3 +1,9 @@
+.home-content{
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+scroll-behavior: smooth;
+}
 .modely-aksesories-cover {
   height: 100vh;
   width: 100%;
