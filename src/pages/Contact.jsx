@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./contact.css"
 import TopBar from "../bars/TopBar"
 import MapWithMarker from './MapWithMarker';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 
 const Contact = () => {
-  const position = [51.505, -0.09];
+  const detailsReal = useSelector(state => state.details.detailsReal)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(GetDetailsAsync())
+  }, [dispatch])
   return (
     <>
       <TopBar />
@@ -18,9 +24,11 @@ const Contact = () => {
       <div className="contact-info">
         <div className="contact-content">
           <span className="contact-content-title">Phone Number</span>
-          <span className="contact-content-content">+2213456782</span>
-          <span className="contact-content-title">E-mail Adress</span>
-          <span className="contact-content-content">duotera@duotera.com</span>
+          <span className="contact-content-content">{detailsReal.email}</span>
+          <span className="contact-content-title">E-mail</span>
+          <span className="contact-content-content">{detailsReal.email}</span>
+          <span className="contact-content-title">Address</span>
+          <span className="contact-content-content">{detailsReal.address}</span>
         </div>
         <span className='row-titles-contact' >Contact</span>
       </div>

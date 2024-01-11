@@ -12,6 +12,7 @@ import ProductsOn from './admin/ProductOn';
 import DealershipRequests from './admin/DealershipRequests';
 import NewProduct from './admin/NewProduct';
 import AdminLogin from './admin/AdminLogin';
+import UpdateDetails from './admin/UpdateDetails';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/admin-panel/products" element={<ProductsOn />} />
         <Route path="/admin-panel/dealership-requests" element={<DealershipRequests />} />
         <Route path="/admin-panel/new-product" element={<NewProduct />} />
+        <Route path="/admin-panel/update-details" element={<UpdateDetails />} />
       </Routes>
     </div>
   );

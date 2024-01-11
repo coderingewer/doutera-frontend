@@ -9,6 +9,7 @@ function AdminSideBar() {
      <Link to="/admin-panel" >Home</Link>
      <Link to="/admin-panel/dealership-requests" >DealerShips</Link>
      <Link to="/admin-panel/new-product" >New Product</Link>
+     <Link to="/admin-panel/update-details" >Update Details</Link>
      </div>
   )
 }

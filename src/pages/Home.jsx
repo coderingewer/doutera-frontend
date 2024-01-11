@@ -3,21 +3,30 @@ import "./home.css"
 import backvideo from "../assets/Backgrounds/backgroundvideo.webm"
 import TopBar from '../bars/TopBar'
 import Products from './Products';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
-
+  const details = useSelector(state => state.details.details)
+  const data = details != {} ? details : detailsReal;
   const scrollBottom = () => {
     window.scrollTo(0, 700);
   }
-
-  useEffect(() => {
+  
+  const TimerSec = () => {
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 1000);
-
-    return () => clearTimeout(timer); // Komponent unmount olduğunda timeout'u temizle
-  }, []);
+    return () => clearTimeout(timer);
+  }
+  const detailsReal = useSelector(state => state.details.detailsReal)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(GetDetailsAsync())
+    TimerSec()
+    console.log(details)
+  }, [dispatch])
   return (
     <div className='home' >
       <TopBar page="home-style" />
@@ -31,7 +40,7 @@ function Home() {
           </div>
           <div className="home-links">
             <a onClick={scrollBottom} className='buy-now-home-btn color2' >Review Products</a>
-            <a target='_blank' href='https://www.github.com' className='buy-now-home-btn color1' >Buy Now</a>
+            <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>
@@ -51,7 +60,7 @@ function Home() {
             </span>
           </div>
           <div className="home-links">
-            <a target='_blank' href='https://www.github.com' className='buy-now-home-btn color1' >Buy Now</a>
+            <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>

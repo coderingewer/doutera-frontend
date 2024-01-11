@@ -1,8 +1,9 @@
 .adminpanel{
 color:var(--color-1);
 height: calc(100vh - 128px);
-width: calc(100% - 128px);
+width: calc(100% - 200px);
 display: flex;
+padding-left: 224px;
 align-items: center;
 background-color: var(--color-2);
 }
