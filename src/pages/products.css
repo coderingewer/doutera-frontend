@@ -238,6 +238,8 @@
         height: calc(100% - 48px);
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 48px;
         background-image: url(../assets/Backgrounds/dots.png);
         background-repeat: no-repeat;
