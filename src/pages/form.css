@@ -1,4 +1,4 @@
-.dealership-form-page{
+.form-form-page{
     position: relative;
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@
     overflow: auto;
 }
 
-.dealership-form{
+.form-form{
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -25,7 +25,7 @@
     width: 25%;
 }
 
-.dealership-form label{
+.form-form label{
     text-align: left;
     width: 100%;
 }
@@ -41,7 +41,7 @@
     font-size: 16px;
 }
 
-.dealership-form  input{
+.form-form  input{
     border: none;
     border-radius: 6px;
     background-color: #fff;
@@ -51,7 +51,7 @@
     font-size: 16px;
 }
 
-.dealership-form-btn{
+.form-form-btn{
     border: none;
     border-radius: 6px;
     background-color: var(--color-1);
@@ -79,14 +79,14 @@
 
 @media only screen and (min-width: 1080px) {
    
-.dealership-form{
+.form-form{
     width: 25%;
 }
 }
 
 @media only screen and (max-width: 1080px) {
    
-    .dealership-form{
+    .form-form{
         width: 70%;
     }
     }

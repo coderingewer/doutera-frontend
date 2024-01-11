@@ -1,0 +1,22 @@
+.adminsidebar{
+    height: 64px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    position: -webkit-sticky;
+    top: 0;
+    justify-content: center;
+    gap: 12px;
+    flex-direction: row;
+    background-color: var(--color-1);
+}
+
+.adminsidebar a{
+    color: var(--color-2);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

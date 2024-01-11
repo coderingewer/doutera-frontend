@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React from 'react'
 import TopBar from '../bars/TopBar';
-import "./dealership.css"
+import "./form.css"
 import * as Yup from 'yup';
 
 const formSchema = Yup.object().shape({
@@ -19,7 +19,6 @@ const formSchema = Yup.object().shape({
 
 });
 
-const position = [51.505, -0.09]
 
 function DealerShip() {
     const formik = useFormik({
@@ -36,9 +35,9 @@ function DealerShip() {
         },
     });
     return (
-        <div className='dealership-form-page'>
+        <div className='form-form-page'>
             <TopBar />
-            <form className='dealership-form' onSubmit={formik.handleSubmit}>
+            <form className='form-form' onSubmit={formik.handleSubmit}>
                 <span className='form-title' >
                     Become Our Authorized Dealer
                 </span>
@@ -98,7 +97,7 @@ function DealerShip() {
                 {formik.touched.activeMarketplaces && formik.errors.activeMarketplaces && (
                     <div className="error">{formik.errors.activeMarketplaces}</div>
                 )}
-                <button className='dealership-form-btn' type="submit">Submit</button>
+                <button className='form-form-btn' type="submit">Submit</button>
 
             </form>
         </div>
