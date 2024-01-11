@@ -7,8 +7,8 @@ import Products from './Products';
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
 
-  const scrollBottom = ()=> {
-    window.scrollTo(0,700);
+  const scrollBottom = () => {
+    window.scrollTo(0, 700);
   }
 
   useEffect(() => {
@@ -40,9 +40,9 @@ function Home() {
         </video>
       </div >
       <div >
-      <Products />
+        <Products />
       </div>
-           <div className="modely-aksesories-cover">
+      <div className="modely-aksesories-cover">
         <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
           <div className="home-content-text">
             <span className="home-content-title">Model Y Accessories</span>

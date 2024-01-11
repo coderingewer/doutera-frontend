@@ -18,8 +18,8 @@ const formSchema = Yup.object().shape({
     .required('Required'),
 });
 function AdminLogin() {
-  const logined = localStorage.getItem("logined") || realTimeLogin
   const realTimeLogin = useSelector((state) => state.admin.realLogin);
+  const logined = localStorage.getItem("logined") || realTimeLogin
   const dispatch = useDispatch()
   const formik = useFormik({
     initialValues: {

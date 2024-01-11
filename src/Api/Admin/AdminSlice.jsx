@@ -22,10 +22,10 @@ const AdminSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(LoginAsync.fulfilled, (state, action) => {
-            state.products = action.payload
             localStorage.setItem("token", action.payload.token)
             localStorage.setItem("logined", true)
-            builder.realLogin = true
+            state.realLogin = true
+            console.log(state.realLogin)
         })
     }
 

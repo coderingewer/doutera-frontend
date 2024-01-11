@@ -13,7 +13,7 @@ function Products(props) {
             <div className="product-info">
                 <img className='product-img'
                     style={{ width: '100%' }}
-                    src={porductimg2} alt="" />
+                    src="https://res.cloudinary.com/ddeatrwxs/image/upload/v1704919074/assets/Duotera/qdqpvsc8e6mdxmzuhov8.jpg" alt="" />
                 <div className="product-features">
                     <div className="product-feature">
                         <div className='product-feature-content'> <span>Convenient</span></div>
@@ -29,7 +29,7 @@ function Products(props) {
                 <div className="product-container2">
                     <div className="product-container2-media">
                         <video className='modely-aksesories-video product-container2-media-content' autoPlay muted loop>
-                            <source src={backvideo} type="video/mp4" />
+                            <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704918815/assets/Duotera/rijdz8h7n3y0bmvstcod.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>                    </div>
                     <div className="product-container2-texts">

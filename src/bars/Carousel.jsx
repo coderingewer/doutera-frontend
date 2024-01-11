@@ -18,7 +18,7 @@ function Carousel() {
       <div className="carousel-content">
         <div id='1' className="carousel-item carousel-item-1 carousel-clip-left">
           <div className="carousel-item-img carousel-item-1-img">
-            <img src={imageT} alt="" />
+            <img src="https://res.cloudinary.com/ddeatrwxs/image/upload/v1704918780/assets/Duotera/g5qxdpzcgcshnslztin3.jpg" alt="" />
           </div>
           <div className="carousel-item-text cit1 carousel-item-1-text">
             <div className="carousel-item-text-content cit1c carousel-item-1-content">
