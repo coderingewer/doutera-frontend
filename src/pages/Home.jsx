@@ -24,7 +24,7 @@ function Home() {
     dispatch(GetDetailsAsync())
     videoRef.current.play();
     TimerSec()
-  }, [dispatch])
+  }, [dispatch,ti])
 
   return (
     <div className='home' >
