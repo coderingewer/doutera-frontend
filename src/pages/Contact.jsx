@@ -24,7 +24,7 @@ const Contact = () => {
       <div className="contact-info">
         <div className="contact-content">
           <span className="contact-content-title">Phone Number</span>
-          <span className="contact-content-content">{detailsReal.email}</span>
+          <span className="contact-content-content">{detailsReal.phone}</span>
           <span className="contact-content-title">E-mail</span>
           <span className="contact-content-content">{detailsReal.email}</span>
           <span className="contact-content-title">Address</span>

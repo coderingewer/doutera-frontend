@@ -12,13 +12,18 @@ function Products(props) {
     useEffect(() => {
         dispatch(GetAllProducts())
     }, [dispatch])
-    const products = useSelector(state => state.products.products)
-    console.log(products)
+    const productsfromDb = useSelector(state => state.products.products)
+    console.log(productsfromDb)
     return (
         <>
 
             <div className='products' >
-                <Carousel data />
+                {
+                    productsfromDb.map((product, i) => (
+
+                            <Carousel />
+                    ))
+                }
                 <div className="product-info">
                     <img className='product-img'
                         style={{ width: '100%' }}

@@ -77,6 +77,7 @@ const Productslice = createSlice({
         builder
             .addCase(GetAllProducts.fulfilled, (state, action) => {
                 state.products = action.payload
+                state.success = true
             })
             .addCase(GetProductByIdAsync.fulfilled, (state, action) => {
                 state.productReal = action.payload

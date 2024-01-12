@@ -26,6 +26,7 @@ function Home() {
     dispatch(GetDetailsAsync())
     TimerSec()
   }, [dispatch])
+  
   return (
     <div className='home' >
       <TopBar page="home-style" />
@@ -43,7 +44,7 @@ function Home() {
           </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>
-          <source src={backvideo} type="video/webm" />
+          <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div >
@@ -63,7 +64,7 @@ function Home() {
           </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>
-          <source src={backvideo} type="video/webm" />
+          <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div >
