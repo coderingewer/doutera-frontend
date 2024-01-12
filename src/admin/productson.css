@@ -37,9 +37,11 @@
     gap: 12px;
 }
 
-.product-on-btns button{
+.product-on-btn{
     border: none;
     padding: 6px;
     border-radius: 6px;
+    text-decoration: none;
+    color: var(--color-1);
     background-color: var(--color-2);
 }

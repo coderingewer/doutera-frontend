@@ -17,8 +17,24 @@ export const addProductsAsync = createAsyncThunk(
         return res.data;
     }
 );
+export const UpdateProductsAsync = createAsyncThunk(
+    "products/UpdateProductsAsync",
+    async (data) => {
+        const res = await axios.post(
+            "http://localhost:8080/product/update/" + data.id,
+            data,
+            {
+                headers: {
+                    ID: `${localStorage.getItem("token")}`,
+                },
+            }
+        );
+        console.log(data);
+        return res.data;
+    }
+);
 export const DeleteProductsAsync = createAsyncThunk(
-    "products/addProductsAsync",
+    "products/DeleteProductAsync",
     async (id) => {
         const res = await axios.delete(
             "http://localhost:8080/product/delete/" + id,
@@ -31,14 +47,16 @@ export const DeleteProductsAsync = createAsyncThunk(
         return res.data;
     }
 );
+
 export const GetAllProducts = createAsyncThunk("Products/getAll", async () => {
     const res = await axios.get(
         "http://localhost:8080/product/all",
-        {
-            headers: {
-                ID: `${localStorage.getItem("token")}`,
-            },
-        }
+    );
+    return res.data;
+});
+export const GetProductByIdAsync = createAsyncThunk("Products/GetProductByIdAsync", async (id) => {
+    const res = await axios.get(
+        "http://localhost:8080/product/byid/" + id,
     );
     return res.data;
 });
@@ -46,6 +64,8 @@ const Productslice = createSlice({
     name: "products",
     initialState: {
         products: [],
+        product: localStorage.getItem("product"),
+        productReal: null,
         loading: false,
         error: null,
         product: null,
@@ -54,9 +74,15 @@ const Productslice = createSlice({
     },
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(GetAllProducts.fulfilled, (state, action) => {
-            state.products = action.payload
-        })
+        builder
+            .addCase(GetAllProducts.fulfilled, (state, action) => {
+                state.products = action.payload
+            })
+            .addCase(GetProductByIdAsync.fulfilled, (state, action) => {
+                state.productReal = action.payload
+                state.success= true
+                localStorage.setItem("product", JSON.stringify(action.payload))
+            })
     }
 
 })

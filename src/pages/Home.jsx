@@ -25,7 +25,6 @@ function Home() {
   useEffect(() => {
     dispatch(GetDetailsAsync())
     TimerSec()
-    console.log(details)
   }, [dispatch])
   return (
     <div className='home' >
