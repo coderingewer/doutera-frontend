@@ -35,7 +35,7 @@ function Home() {
       };
     }
   }, [dispatch])
-  
+
   TimerSec()
   console.log(details)
   return (

@@ -1,4 +1,4 @@
-import { Field, FieldArray, FormikProvider, useFormik } from 'formik';
+import {  FieldArray, FormikProvider, useFormik } from 'formik';
 import "../pages/form.css"
 import "./newproduct.css"
 import { useDispatch } from 'react-redux';
@@ -10,10 +10,6 @@ import { Navigate } from 'react-router-dom';
 function NewProduct() {
   const dispatch = useDispatch();
   const subProduct = [{ title: '', detail: '', imageUrl: '' }]
-  const handleNewSubProduct = () => {
-    console.log(subProduct)
-    subProduct.push([...subProduct, { title: '', detail: '', imageUrl: '' }])
-  }
   const [posted, setPosted] = useState(false)
 
   const formik = useFormik({

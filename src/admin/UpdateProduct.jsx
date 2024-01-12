@@ -11,9 +11,7 @@ import { Navigate, useParams } from 'react-router-dom';
 function UpdateProduct() {
     const params = useParams()
     const dispatch = useDispatch();
-    const product = useSelector(state => state.products.product)
     const productReal = useSelector(state => state.products.productReal)
-    const subProduct = [{ ID: '', title: '', detail: '', imageUrl: '' }]
     const [posted, setPosted] = useState(false)
     console.log(params.id)
     console.log("Product:", productReal)
@@ -187,7 +185,7 @@ function UpdateProduct() {
                                             onChange={formik.handleChange}
                                             value={formik.values.subProducts[index].imageUrl}
                                         />
-                                    
+
                                     </div>
                                 ))}
                             </div>
