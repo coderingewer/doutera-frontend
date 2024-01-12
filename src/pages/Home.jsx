@@ -35,7 +35,7 @@ function Home() {
 
     loadVideo();
   }, [dispatch])
-
+console.log(details)
   return (
     <div className='home' >
       <TopBar page="home-style" />
