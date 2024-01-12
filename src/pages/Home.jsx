@@ -8,11 +8,9 @@ import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const details = useSelector(state => state.details.details)
-  const data = details != {} ? details : detailsReal;
   const scrollBottom = () => {
     window.scrollTo(0, 700);
   }
-
   const TimerSec = () => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -24,18 +22,22 @@ function Home() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetDetailsAsync())
-    TimerSec()
-    const loadVideo = async () => {
-      try {
-        await videoRef.current.load();
-      } catch (error) {
-        console.error('Error loading video:', error);
-      }
-    };
-
-    loadVideo();
+    const video = videoRef.current;
+    if (video && video.readyState >= 3) {
+      video.play();
+    } else {
+      const handleCanPlay = () => {
+        video.play();
+      };
+      video.addEventListener('loadedmetadata', handleCanPlay);
+      return () => {
+        video.removeEventListener('loadedmetadata', handleCanPlay);
+      };
+    }
   }, [dispatch])
-console.log(details)
+  
+  TimerSec()
+  console.log(details)
   return (
     <div className='home' >
       <TopBar page="home-style" />
@@ -52,7 +54,7 @@ console.log(details)
             <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
-        <video ref={videoRef} className='modely-aksesories-video' autoPlay muted loop>
+        <video ref={videoRef} preload="auto" className='modely-aksesories-video' autoPlay muted loop>
           <source src={details.homeVideo} type="video/webm" />
           Your browser does not support the video tag.
         </video>
