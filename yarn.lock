@@ -8128,6 +8128,11 @@ react-leaflet@^4.2.1:
   dependencies:
     "@react-leaflet/core" "^2.1.0"
 
+react-preload-image@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-preload-image/-/react-preload-image-1.0.7.tgz#4fc4afccc72b11465df2898ab4aae7832f233bab"
+  integrity sha512-lIREXvawPJsykq2aFSk4XRP2/mvsnEX5FpZUExXW7eeHhXCLuUARus/DjfxfbaLfIwXDjZ/tQsmq5JDemSgaeA==
+
 react-redux@^9.0.4:
   version "9.0.4"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-9.0.4.tgz#6892d465f086507a517d4b53eb589876e6bc8344"

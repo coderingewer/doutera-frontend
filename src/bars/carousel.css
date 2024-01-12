@@ -145,7 +145,6 @@
         align-items: center;
         padding: 24px;
         gap: 12px;
-        background-color: aquamarine;
         justify-content: center;
     }
     
@@ -207,7 +206,7 @@
         flex-direction: row;
         overflow-x: scroll;
         width: calc(100%  - 192px);
-        height: 70%;
+        height: calc(90% - 48px);
         gap: 96px;
         scroll-behavior: smooth;
         scrollbar-width: none;
@@ -263,7 +262,8 @@
     }
     
     .carousel-btns {
-        position: relative;
+        position: absolute;
+        bottom: 24px;
         gap: 12px;
         display: flex;
         justify-content: center;
