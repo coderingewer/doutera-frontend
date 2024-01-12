@@ -1,12 +1,11 @@
 import { createAsyncThunk, createReducer, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import AdminSideBar from "../../admin/AdminSideBar";
-
+const apiUrl  = process.env.REACT_APP_API_URL;
 export const LoginAsync = createAsyncThunk(
     "admin/LoginAsync",
     async (data) => {
         const res = await axios.post(
-            "http://localhost:8080/admin/login",data,
+            `${apiUrl}admin/login`,data,
         );
         console.log(res.data)
         return res.data;
@@ -19,7 +18,14 @@ const AdminSlice = createSlice({
         logined: localStorage.getItem("logined"),
         realLogin:false
     },
-    reducers: {},
+    reducers: {
+        logout: (state) => {
+            localStorage.removeItem("token")
+            localStorage.removeItem("logined")
+            state.token = null
+            state.logined = false
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(LoginAsync.fulfilled, (state, action) => {
             localStorage.setItem("token", action.payload.token)
@@ -32,3 +38,4 @@ const AdminSlice = createSlice({
 })
 
 export default AdminSlice.reducer;
+export const { logout } = AdminSlice.actions;

@@ -10,6 +10,7 @@
     gap: 24px;
     flex-direction: column;
     text-align: left;
+    align-items: center;
     background-color: var(--color-1);
 }
 
@@ -22,4 +23,11 @@
     text-align: left;
     width: 100%;
     justify-content: center;
+}
+
+.log-out-btn{
+    width: 50%;
+    border: none;
+    padding: 6px;color: red;
+    border-radius: 5px;
 }

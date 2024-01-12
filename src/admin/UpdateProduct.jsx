@@ -5,7 +5,7 @@ import "./newproduct.css"
 import { useDispatch } from 'react-redux';
 import AdminSideBar from './AdminSideBar';
 import { React, useEffect, useState } from 'react';
-import { GetProductByIdAsync, addProductsAsync } from '../Api/Products/ProductSlice';
+import { GetProductByIdAsync, UpdateProductsAsync, addProductsAsync } from '../Api/Products/ProductSlice';
 import { Navigate, useParams } from 'react-router-dom';
 
 function UpdateProduct() {
@@ -13,55 +13,35 @@ function UpdateProduct() {
     const dispatch = useDispatch();
     const product = useSelector(state => state.products.product)
     const productReal = useSelector(state => state.products.productReal)
-    const subProduct = [{ title: '', detail: '', imageUrl: '' }]
-    const values = {
-        name: '',
-        featuresImg: '',
-        featureOne: '',
-        featureTwo: '',
-        featureThree: '',
-        productContainerContent: { title: '', detail: '', videUrl: '' },
-        productCarouselItems: [
-            { title: '', detail: '', image: '' },
-            { title: '', detail: '', image: '' },
-            { title: '', detail: '', image: '' },
-            { title: '', detail: '', image: '' }
-        ],
-        subProducts: subProduct,
-    }
-
+    const subProduct = [{ ID: '', title: '', detail: '', imageUrl: '' }]
     const [posted, setPosted] = useState(false)
     console.log(params.id)
     console.log("Product:", productReal)
     const formik = useFormik({
         initialValues: {
+            ID: params.id,
             name: '',
             featuresImg: '',
             featureOne: '',
             featureTwo: '',
             featureThree: '',
-            productContainerContent: { title: '', detail: '', videUrl: '' },
-            productCarouselItems: [
-                { title: '', detail: '', image: '' },
-                { title: '', detail: '', image: '' },
-                { title: '', detail: '', image: '' },
-                { title: '', detail: '', image: '' }
-            ],
-            subProducts: subProduct,
+            productContainerContent: {},
+            productCarouselItems: [],
+            subProducts: [],
         },
 
         onSubmit: async () => {
             await dispatch(
-                addProductsAsync(formik.values)
+                UpdateProductsAsync(formik.values)
             );
             setPosted(true)
         },
     });
-const success = useSelector(state => state.products.success)
+    console.log("for: ", formik.values)
+    const success = useSelector(state => state.products.success)
     useEffect(() => {
         dispatch(GetProductByIdAsync(params.id))
-        const data = productReal != null ? productReal : values
-        success && formik.setValues(data)
+        success && formik.setValues(productReal)
     }, [dispatch, success, formik.setValues])
     return (
         <div className='new-product-page' >
@@ -207,12 +187,9 @@ const success = useSelector(state => state.products.success)
                                             onChange={formik.handleChange}
                                             value={formik.values.subProducts[index].imageUrl}
                                         />
-                                        <button style={{ border: "none", color: "red", backgroundColor: "transparent", padding: "24px" }} type="button" onClick={() => arrayHelpers.remove(index)}>
-                                            Remove
-                                        </button>
+                                    
                                     </div>
                                 ))}
-                                <button style={{ border: "none", color: "blue", backgroundColor: "transparent", padding: "24px" }} type='button' onClick={() => arrayHelpers.push({ title: '', detail: '', imageUrl: '' })}>Add Sub Product</button>
                             </div>
                         )
                         }

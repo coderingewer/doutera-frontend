@@ -1,11 +1,11 @@
 import { createAsyncThunk, createReducer, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const apiUrl  = process.env.REACT_APP_API_URL;
 export const addDealersihpsAsync = createAsyncThunk(
     "Dealersihps/addDealersihpsAsync",
     async (data) => {
         const res = await axios.post(
-            "http://localhost:8080/dealership/new",
+            `${apiUrl}dealership/new`,
             data,
         );
         console.log(data);
@@ -14,7 +14,7 @@ export const addDealersihpsAsync = createAsyncThunk(
 );
 export const GetActiveDealerships = createAsyncThunk("Dealersihps/getActive", async () => {
     const res = await axios.get(
-        "http://localhost:8080/dealership/active",
+        `${apiUrl}dealership/active`,
         {
             headers: {
                 ID: `${localStorage.getItem("token")}`,
@@ -26,7 +26,7 @@ export const GetActiveDealerships = createAsyncThunk("Dealersihps/getActive", as
 export const GetActiveFalseDealerships = createAsyncThunk(
     "Dealersihps/getActiveFalse", async () => {
         const res = await axios.get(
-            "http://localhost:8080/dealership/activeFalse",
+            `${apiUrl}dealership/activeFalse`,
             {
                 headers: {
                     ID: `${localStorage.getItem("token")}`,
@@ -37,7 +37,7 @@ export const GetActiveFalseDealerships = createAsyncThunk(
     });
 export const MarkAsRead = createAsyncThunk("Dealersihps/MarkAsRead", async (id) => {
     const res = await axios.put(
-        "http://localhost:8080/dealership/update/" + id,null,
+        `${apiUrl}dealership/update/` + id,null,
         {
             headers: {
                ID: `${localStorage.getItem("token")}`,
@@ -70,8 +70,8 @@ const DealersihpSlice = createSlice({
                 console.log("sorunsuz")
             })
             .addCase(MarkAsRead.fulfilled, (state, action) => {
-                state.activeFalseDealerships = state.activeFalseDealerships.filter(dealer => dealer.ID !== action.payload.ID);
-                state.activeDealerships.push(action.payload);
+                state.activeDealerships = state.activeDealerships.filter(dealer => dealer.ID !== action.payload.ID);
+                state.activeFalseDealerships.push(action.payload);
             })
 
     },

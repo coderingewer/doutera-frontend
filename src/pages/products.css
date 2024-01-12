@@ -204,7 +204,7 @@
     }
 
     .porduct-container3-grid {
-        height: 500px;
+        height: 300px;
         width: 70%;
         display: flex;
         background-color: var(--color-2);
@@ -226,9 +226,11 @@
     }
 
     .product-container3-grid-media-content {
-        position: relative;
+        object-fit: cover;
         width: 100%;
         height: 100%;
+        top: 0;
+        left: 0;
     }
 
     .product-container3-grid-text {
@@ -240,7 +242,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 48px;
+        gap: 24px;
         background-image: url(../assets/Backgrounds/dots.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -249,6 +251,11 @@
 
     .product-container3-grid-details span {
         font-size: 18px;
+        width: 100%;
+    }
+
+    .product-container3-grid-details {
+        width: 100%;
     }
 
     .porduct-grid-title {
@@ -281,8 +288,11 @@
     }
 
     .product-img {
-        height: 100%;
+        object-fit: cover;
         width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 
     .product-features {
@@ -376,6 +386,7 @@
     }
 
     .product-container2-media-content {
+        object-fit: cover;
         width: 100%;
         height: 100%;
     }
@@ -454,7 +465,7 @@
     }
 
     .porduct-container3-grid {
-        height: 300px;
+        height: 200px;
         width: 100%;
         display: flex;
         background-color: var(--color-2);
@@ -476,9 +487,11 @@
     }
 
     .product-container3-grid-media-content {
-        position: relative;
+        object-fit: cover;
         width: 100%;
         height: 100%;
+        top: 0;
+        left: 0;
     }
 
     .product-container3-grid-text {
@@ -488,7 +501,7 @@
         height: calc(100% - 48px);
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 12px;
         background-image: url(../assets/Backgrounds/dots.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -496,16 +509,17 @@
     }
 
     .product-container3-grid-details span {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .porduct-grid-title {
         position: relative;
+        font-size: 16px;
         width: 100%;
     }
 
     .porduct-grid-title span {
-        font-size: 36px;
+        font-size: 18px;
         font-weight: 700;
     }
 

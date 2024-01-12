@@ -4,7 +4,6 @@ import "./aboutus.css"
 import "./home.css"
 import logo from "../assets/Duotera/logovertical.png"
 import { Link } from 'react-router-dom'
-import Contact from './Contact'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetDetailsAsync } from '../Api/Details/DetailSlice'
 

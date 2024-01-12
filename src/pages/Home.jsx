@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./home.css"
-import backvideo from "../assets/Backgrounds/backgroundvideo.webm"
 import TopBar from '../bars/TopBar'
 import Products from './Products';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +12,7 @@ function Home() {
   const scrollBottom = () => {
     window.scrollTo(0, 700);
   }
-  
+
   const TimerSec = () => {
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -21,21 +20,31 @@ function Home() {
     return () => clearTimeout(timer);
   }
   const detailsReal = useSelector(state => state.details.detailsReal)
+  const videoRef = useRef(null);
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetDetailsAsync())
     TimerSec()
+    const loadVideo = async () => {
+      try {
+        await videoRef.current.load();
+      } catch (error) {
+        console.error('Error loading video:', error);
+      }
+    };
+
+    loadVideo();
   }, [dispatch])
-  
+
   return (
     <div className='home' >
       <TopBar page="home-style" />
       <div className="modely-aksesories-cover">
         <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
           <div className="home-content-text">
-            <span className="home-content-title">Model Y Accessories</span>
+            <span className="home-content-title">{details.homeTitle}</span>
             <span className="home-content-subtitle">
-              The best way to save your Tesla Model Y
+              {details.homeSubTitle}
             </span>
           </div>
           <div className="home-links">
@@ -43,8 +52,8 @@ function Home() {
             <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
-        <video className='modely-aksesories-video' autoPlay muted loop>
-          <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/webm" />
+        <video ref={videoRef} className='modely-aksesories-video' autoPlay muted loop>
+          <source src={details.homeVideo} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div >
@@ -54,9 +63,9 @@ function Home() {
       <div className="modely-aksesories-cover">
         <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
           <div className="home-content-text">
-            <span className="home-content-title">Model Y Accessories</span>
+            <span className="home-content-title">{details.homeTitle}</span>
             <span className="home-content-subtitle">
-              The best way to save your Tesla Model Y
+              {details.homeSubTitle}
             </span>
           </div>
           <div className="home-links">
@@ -64,7 +73,7 @@ function Home() {
           </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>
-          <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/webm" />
+          <source src={details.homeVideo} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div >

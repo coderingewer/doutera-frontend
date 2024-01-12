@@ -1,11 +1,11 @@
 import { createAsyncThunk, createReducer, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const apiUrl  = process.env.REACT_APP_API_URL;
 export const addProductsAsync = createAsyncThunk(
     "products/addProductsAsync",
     async (data) => {
         const res = await axios.post(
-            "http://localhost:8080/product/new",
+            `${apiUrl}/product/new`,
             data,
             {
                 headers: {
@@ -20,16 +20,15 @@ export const addProductsAsync = createAsyncThunk(
 export const UpdateProductsAsync = createAsyncThunk(
     "products/UpdateProductsAsync",
     async (data) => {
-        const res = await axios.post(
-            "http://localhost:8080/product/update/" + data.id,
-            data,
+        const res = await axios.put(
+            `${apiUrl}product/update/` + data.ID, data,
             {
                 headers: {
                     ID: `${localStorage.getItem("token")}`,
                 },
             }
         );
-        console.log(data);
+        console.log("data",data);
         return res.data;
     }
 );
@@ -37,7 +36,7 @@ export const DeleteProductsAsync = createAsyncThunk(
     "products/DeleteProductAsync",
     async (id) => {
         const res = await axios.delete(
-            "http://localhost:8080/product/delete/" + id,
+            `${apiUrl}/product/delete/` + id,
             {
                 headers: {
                     ID: `${localStorage.getItem("token")}`,
@@ -50,13 +49,13 @@ export const DeleteProductsAsync = createAsyncThunk(
 
 export const GetAllProducts = createAsyncThunk("Products/getAll", async () => {
     const res = await axios.get(
-        "http://localhost:8080/product/all",
+        `${apiUrl}product/all`,
     );
     return res.data;
 });
 export const GetProductByIdAsync = createAsyncThunk("Products/GetProductByIdAsync", async (id) => {
     const res = await axios.get(
-        "http://localhost:8080/product/byid/" + id,
+        `${apiUrl}product/byid/` + id,
     );
     return res.data;
 });
@@ -82,6 +81,7 @@ const Productslice = createSlice({
             .addCase(GetProductByIdAsync.fulfilled, (state, action) => {
                 state.productReal = action.payload
                 state.success= true
+                console.log(action.payload)
                 localStorage.setItem("product", JSON.stringify(action.payload))
             })
     }

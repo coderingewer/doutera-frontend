@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import "./contact.css"
 import TopBar from "../bars/TopBar"
-import MapWithMarker from './MapWithMarker';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 
@@ -16,10 +15,7 @@ const Contact = () => {
       <TopBar />
       <div className="contact-page">
         <div className='offices' >
-          <span className='row-titles-contact' >
-            Worldwide Offices
-          </span>
-          <MapWithMarker />
+         <img src={detailsReal.contactPageImageUrl} alt="" />
         </div>
       <div className="contact-info">
         <div className="contact-content">

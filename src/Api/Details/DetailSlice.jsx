@@ -1,12 +1,12 @@
 import { createAsyncThunk, createReducer, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { useState } from "react";
-
+const apiUrl  = process.env.REACT_APP_API_URL;
 export const GetDetailsAsync = createAsyncThunk(
     "details/GetDetailsAsync",
     async () => {
         const res = await axios.get(
-            "http://localhost:8080/details/byname/Duotera",
+            `${apiUrl}/details/byname/Duotera`,
         );
         console.log(res.data)
         return res.data;
@@ -16,7 +16,7 @@ export const UpdateDetailsAsync  = createAsyncThunk(
     "details/UpdatDetails",
     async (data) => {
         const res = await axios.put(
-            "http://localhost:8080/details/update/Duotera",data,
+            `${apiUrl}details/update/Duotera`,data,
             {
                 headers: {
                     ID: `${localStorage.getItem("token")}`,

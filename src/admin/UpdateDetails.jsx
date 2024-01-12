@@ -17,6 +17,10 @@ function UpdateDetails() {
             address: details.address,
             email: details.email,
             markerurl: details.markerurl,
+            homeVideo: details.homeVideo,
+            contactPageImageUrl: details.contactPageImageUrl,
+            homeSubTitle: details.homeSubTitle,
+            homeTitle: details.homeTitle,
         },
         onSubmit: async () => {
             await dispatch(
@@ -66,6 +70,38 @@ function UpdateDetails() {
                     name="address"
                     onChange={formik.handleChange}
                     value={formik.values.address}
+                />
+                  <label htmlFor="name">Home Video Url</label>
+                <input
+                    className='active-marketplaces'
+                    id="homeVideo"
+                    name="homeVideo"
+                    onChange={formik.handleChange}
+                    value={formik.values.homeVideo}
+                />
+                    <label htmlFor="name">contact Page Image Url</label>
+                <input
+                    className='active-marketplaces'
+                    id="contactPageImageUrl"
+                    name="contactPageImageUrl"
+                    onChange={formik.handleChange}
+                    value={formik.values.contactPageImageUrl}
+                />
+                  <label htmlFor="name">Home Title</label>
+                <textarea
+                    className='active-marketplaces'
+                    id="homeTitle"
+                    name="homeTitle"
+                    onChange={formik.handleChange}
+                    value={formik.values.homeTitle}
+                />
+                    <label htmlFor="name">Home Sub Title</label>
+                <textarea
+                    className='active-marketplaces'
+                    id="homeSubTitle"
+                    name="homeSubTitle"
+                    onChange={formik.handleChange}
+                    value={formik.values.homeSubTitle}
                 />
                 <label htmlFor="name">About Us</label>
                 <textarea
