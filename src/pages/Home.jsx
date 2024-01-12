@@ -7,7 +7,7 @@ import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
-  const details = useSelector(state => state.details.details)
+  const details = useSelector(state => state.details.detailsReal)
   const scrollBottom = () => {
     window.scrollTo(0, 500);
   }
