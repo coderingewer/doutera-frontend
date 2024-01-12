@@ -6,7 +6,7 @@ export const GetDetailsAsync = createAsyncThunk(
     "details/GetDetailsAsync",
     async () => {
         const res = await axios.get(
-            `${apiUrl}/details/byname/Duotera`,
+            `${apiUrl}details/byname/Duotera`,
         );
         console.log(res.data)
         return res.data;
