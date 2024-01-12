@@ -55,7 +55,7 @@ function Home() {
           </div>
         </div>
         <video ref={videoRef} preload="auto" className='modely-aksesories-video' autoPlay muted loop>
-          <source src={details.homeVideo} type="video/webm" />
+          <source src={details.homeVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div >
@@ -75,7 +75,7 @@ function Home() {
           </div>
         </div>
         <video className='modely-aksesories-video' autoPlay muted loop>
-          <source src={details.homeVideo} type="video/webm" />
+          <source src={details.homeVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div >
