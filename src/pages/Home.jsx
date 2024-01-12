@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./home.css"
 import TopBar from '../bars/TopBar'
 import Products from './Products';
@@ -9,7 +9,7 @@ function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const details = useSelector(state => state.details.details)
   const scrollBottom = () => {
-    window.scrollTo(0, 700);
+    window.scrollTo(0, 500);
   }
   const TimerSec = () => {
     const timer = setTimeout(() => {
@@ -18,26 +18,12 @@ function Home() {
     return () => clearTimeout(timer);
   }
   const detailsReal = useSelector(state => state.details.detailsReal)
-  const videoRef = useRef(null);
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetDetailsAsync())
-    const video = videoRef.current;
-    if (video && video.readyState >= 3) {
-      video.play();
-    } else {
-      const handleCanPlay = () => {
-        video.play();
-      };
-      video.addEventListener('loadedmetadata', handleCanPlay);
-      return () => {
-        video.removeEventListener('loadedmetadata', handleCanPlay);
-      };
-    }
+    TimerSec()
   }, [dispatch])
 
-  TimerSec()
-  console.log(details)
   return (
     <div className='home' >
       <TopBar page="home-style" />
@@ -54,7 +40,7 @@ function Home() {
             <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
-        <video ref={videoRef} preload="auto" className='modely-aksesories-video' autoPlay muted loop>
+        <video  preload="auto" className='modely-aksesories-video' autoPlay muted loop>
           <source src={details.homeVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
