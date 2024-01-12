@@ -1,7 +1,7 @@
 .home-content {
   display: flex;
   flex-direction: column;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
 }
 
