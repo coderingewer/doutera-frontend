@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./home.css"
 import TopBar from '../bars/TopBar'
 import Products from './Products';
@@ -19,8 +19,10 @@ function Home() {
   }
   const detailsReal = useSelector(state => state.details.detailsReal)
   const dispatch = useDispatch()
+  const videoRef = useRef(null);
   useEffect(() => {
     dispatch(GetDetailsAsync())
+    videoRef.current.play();
     TimerSec()
   }, [dispatch])
 
@@ -40,7 +42,7 @@ function Home() {
             <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
-        <video  preload="auto" className='modely-aksesories-video' autoPlay muted loop>
+        <video ref={videoRef}  preload="auto" className='modely-aksesories-video' autoPlay muted loop>
           <source src={details.homeVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
