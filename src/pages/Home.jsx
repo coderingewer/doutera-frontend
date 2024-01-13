@@ -53,26 +53,29 @@ function Home() {
         </div >
       }
       {
-        productSuccess ? <Products /> : <div className='loading' >Loading products..</div>
+        productSuccess ? <Products /> : <div className='loading' >Loading...</div>
 
       }
-      <div className="modely-aksesories-cover">
-        <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
-          <div className="home-content-text">
-            <span className="home-content-title">{details.homeTitle}</span>
-            <span className="home-content-subtitle">
-              {details.homeSubTitle}
-            </span>
+            {
+        detailsSuccess &&
+        <div className="modely-aksesories-cover">
+          <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
+            <div className="home-content-text">
+              <span className="home-content-title">{details.homeTitle}</span>
+              <span className="home-content-subtitle">
+                {details.homeSubTitle}
+              </span>
+            </div>
+            <div className="home-links">
+              <a href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
+            </div>
           </div>
-          <div className="home-links">
-            <a href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
-          </div>
-        </div>
-        <video className='modely-aksesories-video' autoPlay muted loop>
-          <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div >
+          <video preload="auto" className='modely-aksesories-video' autoPlay muted loop>
+            <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div >
+      }
     </div>
   )
 }
