@@ -4,6 +4,7 @@
   background-color: var(--color-2);
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;
+  width: 100vw;
 }
 
 .App-logo {
