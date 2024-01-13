@@ -18,27 +18,27 @@ function TopBar(props) {
     };
   }, [scrollPosition]);
   const [isToggled, setToggled] = useState(false);
-  const handleTogleMenu  =()=>{
+  const handleTogleMenu = () => {
     const linksMenu = document.getElementById("links-menu");
     setToggled(!isToggled)
-    isToggled ? linksMenu.style.display="flex" : linksMenu.style.display="none"
+    isToggled ? linksMenu.style.display = "flex" : linksMenu.style.display = "none"
   }
 
-    return (
-      <div className={scrollPosition > 500 ? "top-bar top-bar-blur" : "top-bar" + " " + props.page}
-      > <Link to="/">
-          <div className="top-bar-logo">
-            <img src={duoteralogo} alt="Duotera" />
-          </div>
-        </Link>
-        <div className="navs-in-top-bar">
-          <Link to="/dealership-form">Dealership</Link>
-          <Link to="/about-us">About Us</Link>
-          <Link to="/contact">Contact</Link>
+  return (
+    <div className={scrollPosition > 500 ? "top-bar top-bar-blur" : "top-bar" + " " + props.page}
+    > <Link to="/">
+        <div className="top-bar-logo">
+          <img src={duoteralogo} alt="Duotera" />
         </div>
-        <button className='menu-btn' onClick={handleTogleMenu}><img src={menuIcon} alt="" /></button>
+      </Link>
+      <div className="navs-in-top-bar">
+        <Link to="/dealership-form">Dealership</Link>
+        <Link to="/about-us">About Us</Link>
+        <Link to="/contact">Contact</Link>
       </div>
-    )
-  }
+      <div className='menu-btn' onClick={handleTogleMenu}><img src={menuIcon}  /></div>
+    </div>
+  )
+}
 
-  export default TopBar
+export default TopBar
