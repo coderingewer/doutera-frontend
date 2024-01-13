@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import { Field, FieldArray, FormikProvider, isObject, useFormik } from 'formik';
+import {  FieldArray, FormikProvider, useFormik } from 'formik';
 import "../pages/form.css"
 import "./newproduct.css"
 import { useDispatch } from 'react-redux';
 import AdminSideBar from './AdminSideBar';
 import { React, useEffect, useState } from 'react';
-import { GetProductByIdAsync, UpdateProductsAsync, addProductsAsync } from '../Api/Products/ProductSlice';
+import { GetProductByIdAsync, UpdateProductsAsync } from '../Api/Products/ProductSlice';
 import { Navigate, useParams } from 'react-router-dom';
 
 function UpdateProduct() {
@@ -17,7 +17,7 @@ function UpdateProduct() {
     console.log("Product:", productReal)
     const formik = useFormik({
         initialValues: {
-            ID: params.id,
+            ID: '',
             name: '',
             featuresImg: '',
             featureOne: '',

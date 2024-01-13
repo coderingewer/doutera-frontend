@@ -21,31 +21,34 @@ function Home() {
     return () => clearTimeout(timer);
   }
   //preload video before page rendering reactjs
-  const videoRef = useRef();
-
+  const [videoLoaded, setVideoLoaded] = useState(false)
   const detailsReal = useSelector(state => state.details.detailsReal)
+  const videoRef = useRef(document.createElement('video'));
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetDetailsAsync())
-    if (videoRef.current === null) {
+    if (videoRef.current != null) {
+      console.log(videoRef.current)
       videoRef.current.preload = 'auto';
       videoRef.current.muted = true;
       videoRef.current.loop = true;
+      videoRef.current.src = detailsReal.homeVideo;
       videoRef.current.autoplay = true;
       videoRef.current.type = 'video/mp4';
-      videoRef.current.onLoadedData = () => {
+      videoRef.current.onloadeddata = () => {
         videoRef.current.play();
+        setVideoLoaded(true);
+        console.log(videoRef.current)
       }
     }
     dispatch(GetAllProducts())
     TimerSec()
-  }, [dispatch, detailsSuccess])
-  const [isLoadingVideo, setIsLoadingVideo] = useState(false)
+  }, [dispatch, videoRef, detailsSuccess])
   return (
     <div className='home' >
       <TopBar page="home-style" />
       {
-        detailsSuccess &&
+        videoLoaded &&
         <div className="modely-aksesories-cover">
           <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
             <div className="home-content-text">
@@ -59,10 +62,15 @@ function Home() {
               <a href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
             </div>
           </div>
-          <video ref={videoRef}
-           preload={'auto'}
+          <video
+          ref={videoRef}
+            onLoadedData = { () => {
+              setVideoLoaded(true);
+              videoRef.current.play();
+            }}
+            preload={'auto'}
             className='modely-aksesories-video'
-             loop
+            loop
             muted
             autoPlay
             type={'video/mp4'}
@@ -77,7 +85,7 @@ function Home() {
 
       }
       {
-        detailsSuccess &&
+        videoLoaded &&
         <div className="modely-aksesories-cover">
           <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
             <div className="home-content-text">
