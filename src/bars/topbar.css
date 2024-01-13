@@ -25,20 +25,7 @@
     height: 100%;
 }
 
-.navs-in-top-bar{
-    position: relative;
-    margin-right: 48px;
-    align-items: center;
-    gap: 12px;
-}
-.navs-in-top-bar a{
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 6px;
-    padding: 6px;
-    color: var(--color-1);
-}
+
 
 
 
@@ -58,6 +45,20 @@
     }
     .home-style a{
         color: var(--color-2);
+    }
+    .navs-in-top-bar{
+        position: relative;
+        margin-right: 48px;
+        align-items: center;
+        gap: 12px;
+    }
+    .navs-in-top-bar a{
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 6px;
+        padding: 6px;
+        color: var(--color-1);
     }
 }
 
