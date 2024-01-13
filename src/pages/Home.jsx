@@ -34,11 +34,10 @@ function Home() {
       videoRef.current.loop = true;
       videoRef.current.src = detailsReal.homeVideo;
       videoRef.current.autoplay = true;
-      videoRef.current.type = 'video/mp4';
+      videoRef.current.type = 'video/webm';
       videoRef.current.onloadeddata = () => {
         videoRef.current.play();
         setVideoLoaded(true);
-        console.log(videoRef.current)
       }
     }
     dispatch(GetAllProducts())
@@ -81,7 +80,7 @@ function Home() {
         </div >
       }
       {
-        productSuccess ? <Products /> : <div className='loading' >Loading...</div>
+        videoLoaded && productSuccess ? <Products /> : <div className='loading' >Loading...</div>
 
       }
       {
