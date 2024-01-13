@@ -23,11 +23,9 @@ function Home() {
   }
   const detailsReal = useSelector(state => state.details.detailsReal)
   const dispatch = useDispatch()
-  const videoRef = useRef(null);
   useEffect(() => {
     dispatch(GetDetailsAsync())
     dispatch(GetAllProducts())
-    videoRef.current.play();
     TimerSec()
   }, [dispatch, detailsSuccess])
 
@@ -49,7 +47,7 @@ function Home() {
             <a target='_blank' href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
           </div>
         </div>
-        <video ref={videoRef}  preload="auto" className='modely-aksesories-video' autoPlay muted loop>
+        <video  preload="auto" className='modely-aksesories-video' autoPlay muted loop>
           <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
