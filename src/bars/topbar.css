@@ -50,7 +50,7 @@
         position: relative;
         margin-right: 48px;
         align-items: center;
-        gap: 12px;
+        gap: 24px;
     }
     .navs-in-top-bar a{
         text-decoration: none;
