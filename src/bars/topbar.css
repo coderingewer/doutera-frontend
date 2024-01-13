@@ -68,10 +68,14 @@
         background-color: transparent;
         border: none;
         position: relative;
-        margin-right: 12px;
+        padding-right: 12px;
     }
     .top-bar-logo{
         left: 12px;
     
+    }
+    .top-bar{
+        width: 100%;
+        height: 84px;
     }
 }
