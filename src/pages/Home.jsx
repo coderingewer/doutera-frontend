@@ -81,7 +81,7 @@ function Home() {
         </div >
       }
       {
-        videoLoaded && productSuccess ? <Products /> : <div className='loading' ><img src= {require("../assets/icons/loading.gif")} alt="" /></div>
+        videoLoaded && productSuccess ? <Products /> : <div className='loading' >Loading...</div>
 
       }
       {
