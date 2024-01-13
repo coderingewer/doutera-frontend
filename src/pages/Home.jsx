@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./home.css"
 import TopBar from '../bars/TopBar'
 import Products from './Products';
@@ -20,14 +20,27 @@ function Home() {
     }, 1000);
     return () => clearTimeout(timer);
   }
+  //preload video before page rendering reactjs
+  const videoRef = useRef();
+
   const detailsReal = useSelector(state => state.details.detailsReal)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetDetailsAsync())
+    if (videoRef.current === null) {
+      videoRef.current.preload = 'auto';
+      videoRef.current.muted = true;
+      videoRef.current.loop = true;
+      videoRef.current.autoplay = true;
+      videoRef.current.type = 'video/mp4';
+      videoRef.current.onLoadedData = () => {
+        videoRef.current.play();
+      }
+    }
     dispatch(GetAllProducts())
     TimerSec()
   }, [dispatch, detailsSuccess])
-
+  const [isLoadingVideo, setIsLoadingVideo] = useState(false)
   return (
     <div className='home' >
       <TopBar page="home-style" />
@@ -42,11 +55,18 @@ function Home() {
               </span>
             </div>
             <div className="home-links">
-              <button onClick={scrollBottom} className='buy-now-home-btn color2' >Review Products</button>
+              <button style={{ border: "none" }} onClick={scrollBottom} className='buy-now-home-btn color2' >Review Products</button>
               <a href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
             </div>
           </div>
-          <video preload="auto" className='modely-aksesories-video' autoPlay muted loop>
+          <video ref={videoRef}
+           preload={'auto'}
+            className='modely-aksesories-video'
+             loop
+            muted
+            autoPlay
+            type={'video/mp4'}
+          >
             <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -56,7 +76,7 @@ function Home() {
         productSuccess ? <Products /> : <div className='loading' >Loading...</div>
 
       }
-            {
+      {
         detailsSuccess &&
         <div className="modely-aksesories-cover">
           <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
@@ -70,7 +90,7 @@ function Home() {
               <a href={detailsReal.markerurl} className='buy-now-home-btn color1' >Buy Now</a>
             </div>
           </div>
-          <video preload="auto" className='modely-aksesories-video' autoPlay muted loop>
+          <video ref={videoRef} preload="auto" className='modely-aksesories-video' autoPlay muted loop>
             <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
