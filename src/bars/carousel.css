@@ -78,8 +78,6 @@
         object-fit: cover;
         width: 100%;
         height: 60%;
-        top: 0;
-        left: 0;
     }
     
     .carousel-item-1-img {
@@ -233,7 +231,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        min-width: 300px;
+        min-width: 270px;
         height: 100%;
         clip-path: var(--clip-bottom-btn-right);
     }
@@ -282,21 +280,27 @@
         justify-content: center;
         align-items: center;
         height: 50%;
+        object-fit: cover;
+        
     }
     
     .carousel-item-1-img {
         width: 100%;
         height: 50%;
+        object-fit: cover;
+
     }
     
     .carousel-item-2-img {
         width: 100%;
         height:50%;
+        object-fit: cover;
     }
     
     .carousel-item-img img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
     }
     
     .carousel-item-text {
