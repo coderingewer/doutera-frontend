@@ -5,7 +5,6 @@ import Products from './Products';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 import { GetAllProducts } from '../Api/Products/ProductSlice';
-import {loadingGif} from "../assets/icons/loading.gif"
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +20,6 @@ function Home() {
     }, 1000);
     return () => clearTimeout(timer);
   }
-  //preload video before page rendering reactjs
   const [videoLoaded, setVideoLoaded] = useState(false)
   const detailsReal = useSelector(state => state.details.detailsReal)
   const videoRef = useRef(document.createElement('video'));
