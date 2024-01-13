@@ -68,7 +68,8 @@
     .menu-btn{
         background-color: transparent;
         border: none;
-        position: relative;
+        position: absolute;
+        right: 0;
         padding-right: 12px;
     }
  
