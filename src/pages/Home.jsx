@@ -28,6 +28,7 @@ function Home() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetDetailsAsync())
+    dispatch(GetAllProducts())
     if (videoRef.current != null) {
       console.log(videoRef.current)
       videoRef.current.preload = 'auto';
@@ -39,7 +40,6 @@ function Home() {
       videoRef.current.onloadeddata = () => {
         videoRef.current.play();
         setVideoLoaded(true);
-        dispatch(GetAllProducts())
       }
     }
     TimerSec()

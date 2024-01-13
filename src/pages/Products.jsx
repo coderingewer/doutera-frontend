@@ -3,6 +3,7 @@ import React from 'react'
 import "./products.css"
 import Carousel from '../bars/Carousel'
 import "./home.css"
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function Products(props) {
     const productsfromDb = useSelector(state => state.products.products)
@@ -17,9 +18,10 @@ function Products(props) {
                         <Carousel data={product.productCarouselItems} />
 
                         <div className="product-info">
-                            <img className='product-img'
-                                style={{ width: '100%' }}
-                                loading='lazy'
+                            <LazyLoadImage
+                                effect="blur"
+                                height={"100%"}
+                                width={"100%"}
                                 src={product.featuresImg} alt="" />
                             <div className="product-features">
                                 <div className="product-feature">
@@ -50,7 +52,10 @@ function Products(props) {
                                 product.subProducts.map((subProduct, i) => (
                                     <div key={i + 1} className={i % 2 === 0 ? "porduct-container3-grid grid-right" : "porduct-container3-grid grid-left"} >
                                         <div className="product-container3-grid-media">
-                                            <img className="product-container3-grid-media-content" src={subProduct.imageUrl} alt="" />
+                                            <LazyLoadImage
+                                                effect="blur"
+                                                height={"100%"}
+                                                width={"100%"} className="product-container3-grid-media-content" src={subProduct.imageUrl} alt="" />
                                         </div>
                                         <div className='product-container3-grid-text' >
                                             <div className="porduct-grid-title">

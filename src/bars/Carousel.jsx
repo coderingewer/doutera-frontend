@@ -1,5 +1,6 @@
 import React from 'react'
 import './carousel.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function centerDiv(divId) {
   const container = document.querySelector('.carousel-content');
@@ -17,7 +18,7 @@ function Carousel(props) {
       <div className="carousel-content">
         <div id='1' className="carousel-item carousel-item-1 carousel-clip-left">
           <div className="carousel-item-img carousel-item-1-img">
-            <img loading='lazy' src={props.data[0].image} alt="" />
+            <LazyLoadImage  src={props.data[0].image} alt="" />
           </div>
           <div className="carousel-item-text cit1 carousel-item-1-text">
             <div className="carousel-item-text-content cit1c carousel-item-1-content">
@@ -32,7 +33,7 @@ function Carousel(props) {
         </div>
         <div id='2' className="carousel-item carousel-item-2 carousel-clip-left">
           <div className="carousel-item-img">
-            <img loading='lazy' src={props.data[1].image} alt="" />
+            <LazyLoadImage loading='lazy' src={props.data[1].image} alt="" />
           </div>
           <div className="carousel-item-text cit2 carousel-item-2-text">
             <div className="carousel-item-text-content carousel-item-2-content">
@@ -47,7 +48,7 @@ function Carousel(props) {
         </div>
         <div id='3' className="carousel-item carousel-item-1 carousel-clip-right">
           <div className="carousel-item-img carousel-item-1-img">
-            <img loading='lazy' src={props.data[2].image} alt="" />
+            <LazyLoadImage loading='lazy' src={props.data[2].image} alt="" />
           </div>
           <div className="carousel-item-text cit3  carousel-item-1-text">
             <div className="carousel-item-text-content cit3c carousel-item-1-content">
@@ -62,7 +63,11 @@ function Carousel(props) {
         </div>
         <div id='4' className="carousel-item carousel-item-2  carousel-clip-right">
           <div className="carousel-item-img">
-            <img loading='lazy' src={props.data[3].image} alt="" />
+            <LazyLoadImage
+            effect="blur"
+            height={"100%"}
+            width={"100%"}
+             src={props.data[3].image}  />
           </div>
           <div className="carousel-item-text cit4 carousel-item-2-text">
             <div className="carousel-item-text-content carousel-item-2-content">
