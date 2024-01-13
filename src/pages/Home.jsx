@@ -4,10 +4,14 @@ import TopBar from '../bars/TopBar'
 import Products from './Products';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
+import { GetAllProducts } from '../Api/Products/ProductSlice';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const details = useSelector(state => state.details.detailsReal)
+  const productSuccess = useSelector(state => state.products.success)
+  const detailsSuccess = useSelector(state => state.details.success)
+  const success =  detailsSuccess && productSuccess
   const scrollBottom = () => {
     window.scrollTo(0, 500);
   }
@@ -22,15 +26,18 @@ function Home() {
   const videoRef = useRef(null);
   useEffect(() => {
     dispatch(GetDetailsAsync())
+    dispatch(GetAllProducts())
     videoRef.current.play();
     TimerSec()
-  }, [dispatch])
+  }, [dispatch, detailsSuccess])
 
   return (
     <div className='home' >
       <TopBar page="home-style" />
+      {
+        detailsSuccess &&
       <div className="modely-aksesories-cover">
-        <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
+        <div  id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
           <div className="home-content-text">
             <span className="home-content-title">{details.homeTitle}</span>
             <span className="home-content-subtitle">
@@ -47,9 +54,11 @@ function Home() {
           Your browser does not support the video tag.
         </video>
       </div >
-      <div >
-        <Products />
-      </div>
+      }
+        {
+          productSuccess ? <Products /> : <div className='loading' >Loading products..</div>
+
+        }
       <div className="modely-aksesories-cover">
         <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
           <div className="home-content-text">

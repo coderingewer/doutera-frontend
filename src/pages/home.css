@@ -15,6 +15,17 @@
   background-color: var(--color-2);
 }
 
+.loading{
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: var(--color-2);
+}
+
 .modely-aksesories-video {
   position: relative;
   height: 120%;

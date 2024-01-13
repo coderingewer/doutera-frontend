@@ -31,12 +31,14 @@ const DetailSlice = createSlice({
     name: "details",
     initialState: {
         detailsReal:{},
+        success:false,
         details:localStorage.getItem("details")?JSON.parse(localStorage.getItem("details")):{},
     },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(GetDetailsAsync.fulfilled, (state, action) => {
             state.detailsReal = action.payload;
+            state.success= true;
             localStorage.setItem("details", JSON.stringify(action.payload))
         })
     }
