@@ -38,9 +38,9 @@ function Home() {
       videoRef.current.onloadeddata = () => {
         videoRef.current.play();
         setVideoLoaded(true);
+        dispatch(GetAllProducts())
       }
     }
-    dispatch(GetAllProducts())
     TimerSec()
   }, [dispatch, videoRef, detailsSuccess])
   return (
@@ -74,7 +74,7 @@ function Home() {
             autoPlay
             type={'video/mp4'}
           >
-            <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
+            <source src={details.homeVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div >
@@ -98,7 +98,7 @@ function Home() {
             </div>
           </div>
           <video ref={videoRef} preload="auto" className='modely-aksesories-video' autoPlay muted loop>
-            <source src="https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm" type="video/mp4" />
+            <source src={details.homeVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div >

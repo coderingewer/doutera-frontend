@@ -6,10 +6,6 @@ import "./home.css"
 import { GetAllProducts } from '../Api/Products/ProductSlice'
 
 function Products(props) {
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(GetAllProducts())
-    }, [dispatch])
     const productsfromDb = useSelector(state => state.products.products)
     console.log(productsfromDb)
     return (
