@@ -5,6 +5,7 @@ import Products from './Products';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 import { GetAllProducts } from '../Api/Products/ProductSlice';
+import {loadingGif} from "../assets/icons/loading.gif"
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -80,7 +81,7 @@ function Home() {
         </div >
       }
       {
-        videoLoaded && productSuccess ? <Products /> : <div className='loading' >Loading...</div>
+        videoLoaded && productSuccess ? <Products /> : <div className='loading' ><img src= {require("../assets/icons/loading.gif")} alt="" /></div>
 
       }
       {
