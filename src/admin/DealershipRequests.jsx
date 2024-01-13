@@ -16,7 +16,6 @@ function DealershipRequests() {
   const handleMarkAsread = (id) => {
     dispacth(MarkAsRead(id))
   }
-  console.log(activeDealers)
   return (
     <div className='dealership-requests' >
       <AdminSideBar />

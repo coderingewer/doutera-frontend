@@ -8,7 +8,6 @@ export const addDealersihpsAsync = createAsyncThunk(
             `${apiUrl}dealership/new`,
             data,
         );
-        console.log(data);
         return res.data;
     }
 );
@@ -63,11 +62,9 @@ const DealersihpSlice = createSlice({
         builder
             .addCase(GetActiveDealerships.fulfilled, (state, action) => {
                 state.activeDealerships = action.payload;
-                console.log("sorunsuz")
             })
             .addCase(GetActiveFalseDealerships.fulfilled, (state, action) => {
                 state.activeFalseDealerships = action.payload;
-                console.log("sorunsuz")
             })
             .addCase(MarkAsRead.fulfilled, (state, action) => {
                 state.activeDealerships = state.activeDealerships.filter(dealer => dealer.ID !== action.payload.ID);

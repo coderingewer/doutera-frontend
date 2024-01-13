@@ -8,7 +8,6 @@ export const GetDetailsAsync = createAsyncThunk(
         const res = await axios.get(
             `${apiUrl}details/byname/Duotera`,
         );
-        console.log(res.data)
         return res.data;
     }
 );
@@ -23,7 +22,6 @@ export const UpdateDetailsAsync  = createAsyncThunk(
                 },
             }
         );
-        console.log(res.data)
         return res.data;
     }
 );

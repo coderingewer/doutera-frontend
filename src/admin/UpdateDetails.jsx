@@ -31,7 +31,6 @@ function UpdateDetails() {
     });
     useState(() => {
         dispatch(GetDetailsAsync())
-        console.log(details)
     }, [dispatch])
     return (
         <div style={{ display: "flex", justifyContent: "center", height: "100vh", overflow: "scroll" }} >

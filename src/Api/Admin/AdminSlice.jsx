@@ -7,7 +7,6 @@ export const LoginAsync = createAsyncThunk(
         const res = await axios.post(
             `${apiUrl}admin/login`,data,
         );
-        console.log(res.data)
         return res.data;
     }
 );

@@ -14,7 +14,6 @@ function ProductsOn() {
   },[dispatch])
   const handleDelete  =   (id) => {
      dispatch(DeleteProductsAsync(id))
-    console.log(id)
   }
   return (
     <div className='products-on'>

@@ -30,7 +30,6 @@ function Home() {
     dispatch(GetDetailsAsync())
     dispatch(GetAllProducts())
     if (videoRef.current != null) {
-      console.log(videoRef.current)
       videoRef.current.preload = 'auto';
       videoRef.current.muted = true;
       videoRef.current.loop = true;

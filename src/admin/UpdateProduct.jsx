@@ -13,8 +13,6 @@ function UpdateProduct() {
     const dispatch = useDispatch();
     const productReal = useSelector(state => state.products.productReal)
     const [posted, setPosted] = useState(false)
-    console.log(params.id)
-    console.log("Product:", productReal)
     const formik = useFormik({
         initialValues: {
             ID: '',
@@ -35,7 +33,6 @@ function UpdateProduct() {
             setPosted(true)
         },
     });
-    console.log("for: ", formik.values)
     const success = useSelector(state => state.products.success)
     useEffect(() => {
         dispatch(GetProductByIdAsync(params.id))

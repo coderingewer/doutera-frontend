@@ -13,7 +13,6 @@ export const addProductsAsync = createAsyncThunk(
                 },
             }
         );
-        console.log(data);
         return res.data;
     }
 );
@@ -28,7 +27,6 @@ export const UpdateProductsAsync = createAsyncThunk(
                 },
             }
         );
-        console.log("data",data);
         return res.data;
     }
 );
@@ -81,7 +79,6 @@ const Productslice = createSlice({
             .addCase(GetProductByIdAsync.fulfilled, (state, action) => {
                 state.productReal = action.payload
                 state.success= true
-                console.log(action.payload)
                 localStorage.setItem("product", JSON.stringify(action.payload))
             })
     }

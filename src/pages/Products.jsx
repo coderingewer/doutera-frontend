@@ -6,7 +6,6 @@ import "./home.css"
 
 function Products(props) {
     const productsfromDb = useSelector(state => state.products.products)
-    console.log(productsfromDb)
     return (
         <>
 
