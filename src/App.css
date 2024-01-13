@@ -2,6 +2,8 @@
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
   background-color: var(--color-2);
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
 }
 
 .App-logo {
