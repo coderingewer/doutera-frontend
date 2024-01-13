@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux'
-import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import React from 'react'
 import "./products.css"
 import Carousel from '../bars/Carousel'
 import "./home.css"
-import { GetAllProducts } from '../Api/Products/ProductSlice'
 
 function Products(props) {
     const productsfromDb = useSelector(state => state.products.products)
