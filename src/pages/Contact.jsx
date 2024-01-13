@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import "./contact.css"
 import TopBar from "../bars/TopBar"
+import {LazyLoadImage} from "react-lazy-load-image-component"
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 
@@ -15,7 +16,11 @@ const Contact = () => {
       <TopBar />
       <div className="contact-page">
         <div className='offices' >
-         <img src={detailsReal.contactPageImageUrl} alt="" />
+         <LazyLoadImage
+         effect='blur'
+         width={"100%"}
+         height={"100%"}
+          src={detailsReal.contactPageImageUrl} alt="" />
         </div>
       <div className="contact-info">
         <div className="contact-content">
