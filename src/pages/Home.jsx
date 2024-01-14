@@ -78,7 +78,7 @@ function Home() {
         </div >
       }
       {
-        videoLoaded && productSuccess ? <Products /> : <div className='loading' >Loading...</div>
+        videoLoaded && productSuccess && <Products />
 
       }
       {
