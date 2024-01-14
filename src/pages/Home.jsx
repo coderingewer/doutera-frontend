@@ -60,8 +60,8 @@ function Home() {
             </div>
           </div>
           <video
-          ref={videoRef}
-            onLoadedData = { () => {
+            ref={videoRef}
+            onLoadedData={() => {
               setVideoLoaded(true);
               videoRef.current.play();
             }}
