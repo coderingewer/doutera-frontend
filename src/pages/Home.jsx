@@ -47,7 +47,7 @@ function Home() {
       {
         videoLoaded &&
         <div className="modely-aksesories-cover">
-          <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
+          <div id='home-model-y-content' className='home-content' >
             <div className="home-content-text">
               <span className="home-content-title">{details.homeTitle}</span>
               <span className="home-content-subtitle">
@@ -84,7 +84,7 @@ function Home() {
       {
         videoLoaded &&
         <div className="modely-aksesories-cover">
-          <div id='home-model-y-content' className={isVisible ? 'visible home-content' : 'hidden'} >
+          <div id='home-model-y-content' className= "home-content" >
             <div className="home-content-text">
               <span className="home-content-title">{details.homeTitle}</span>
               <span className="home-content-subtitle">

@@ -14,6 +14,7 @@ import NewProduct from './admin/NewProduct';
 import AdminLogin from './admin/AdminLogin';
 import UpdateDetails from './admin/UpdateDetails';
 import UpdateProduct from './admin/UpdateProduct';
+import Footer from './bars/Footer';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/admin-panel/update-product/:id" element={<UpdateProduct />} />
         <Route path="/admin-panel/update-details" element={<UpdateDetails />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
