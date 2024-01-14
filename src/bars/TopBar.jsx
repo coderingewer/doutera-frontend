@@ -36,7 +36,7 @@ function TopBar(props) {
         <Link to="/about-us">About Us</Link>
         <Link to="/contact">Contact</Link>
       </div>
-      <div className='menu-btn' onClick={handleTogleMenu}><img src={menuIcon}  /></div>
+      <div className='menu-btn' onClick={handleTogleMenu}><img src={menuIcon} alt='menu'  /></div>
     </div>
   )
 }

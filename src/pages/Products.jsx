@@ -19,7 +19,7 @@ function Products(props) {
                             <img className='product-img'
                                 style={{ width: '100%' }}
                                 loading='lazy'
-                                src={product.featuresImg} alt="" />
+                                src={product.featuresImg} alt={product.featureOne} />
                             <div className="product-features">
                                 <div className="product-feature">
                                     <div className='product-feature-content'> <span>{product.featureOne}</span></div>
@@ -49,7 +49,7 @@ function Products(props) {
                                 product.subProducts.map((subProduct, i) => (
                                     <div key={i + 1} className={i % 2 === 0 ? "porduct-container3-grid grid-right" : "porduct-container3-grid grid-left"} >
                                         <div className="product-container3-grid-media">
-                                            <img className="product-container3-grid-media-content" src={subProduct.imageUrl} alt="" />
+                                            <img className="product-container3-grid-media-content" src={subProduct.imageUrl} alt={subProduct.title} />
                                         </div>
                                         <div className='product-container3-grid-text' >
                                             <div className="porduct-grid-title">
