@@ -1,6 +1,5 @@
 import './App.css';
-import TopBar from './bars/TopBar';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Products from './pages/Products';
 import Home from './pages/Home';
 import DealerShip from './pages/DealerShip';
@@ -14,11 +13,9 @@ import NewProduct from './admin/NewProduct';
 import AdminLogin from './admin/AdminLogin';
 import UpdateDetails from './admin/UpdateDetails';
 import UpdateProduct from './admin/UpdateProduct';
-import Footer from './bars/Footer';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const productSuccess = useSelector(state => state.products.success)
   return (
     <div className="App">
       <SideMenu/>
@@ -36,7 +33,6 @@ function App() {
         <Route path="/admin-panel/update-product/:id" element={<UpdateProduct />} />
         <Route path="/admin-panel/update-details" element={<UpdateDetails />} />
       </Routes>
-     {productSuccess && <Footer/>}
     </div>
   );
 }

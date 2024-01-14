@@ -5,6 +5,7 @@ import Products from './Products';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 import { GetAllProducts } from '../Api/Products/ProductSlice';
+import Footer from '../bars/Footer';
 
 function Home() {
   const details = useSelector(state => state.details.detailsReal)
@@ -76,7 +77,7 @@ function Home() {
       {
         videoLoaded &&
         <div className="modely-aksesories-cover">
-          <div id='home-model-y-content' className= "home-content" >
+          <div id='home-model-y-content' className="home-content" >
             <div className="home-content-text">
               <span className="home-content-title">{details.homeTitle}</span>
               <span className="home-content-subtitle">
@@ -93,6 +94,11 @@ function Home() {
           </video>
         </div >
       }
+         {
+        videoLoaded && productSuccess && <Footer />
+
+      }
+      
     </div>
   )
 }

@@ -6,6 +6,7 @@ import logo from "../assets/Duotera/logovertical.png"
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetDetailsAsync } from '../Api/Details/DetailSlice'
+import Footer from '../bars/Footer'
 
 function AboutUs() {
     const detailsReal = useSelector(state => state.details.detailsReal)
@@ -29,6 +30,7 @@ function AboutUs() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

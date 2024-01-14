@@ -4,6 +4,7 @@ import TopBar from "../bars/TopBar"
 import {LazyLoadImage} from "react-lazy-load-image-component"
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDetailsAsync } from '../Api/Details/DetailSlice';
+import Footer from '../bars/Footer';
 
 const Contact = () => {
   const detailsReal = useSelector(state => state.details.detailsReal)
@@ -34,6 +35,8 @@ const Contact = () => {
         <span className='row-titles-contact' >Contact</span>
       </div>
       </div>
+      <Footer/>
+
     </>
   );
 };

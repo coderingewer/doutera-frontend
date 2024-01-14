@@ -5,6 +5,7 @@ import TopBar from '../bars/TopBar';
 import "./form.css"
 import * as Yup from 'yup';
 import { addDealersihpsAsync } from '../Api/DealerShips/DealerShipSlice';
+import Footer from '../bars/Footer';
 
 const formSchema = Yup.object().shape({
     name: Yup.string()
@@ -38,7 +39,7 @@ function DealerShip() {
     });
 
     return (
-        <div className='form-form-page'>
+        <div style={{flexDirection:"column"}} className='form-form-page'>
             <TopBar />
             <form className='form-form' onSubmit={formik.handleSubmit}>
                 <span className='form-title' >
@@ -102,6 +103,7 @@ function DealerShip() {
                 <button className='form-form-btn' type="submit">Submit</button>
 
             </form>
+            <Footer/>
         </div>
     )
 }
