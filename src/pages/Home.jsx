@@ -7,18 +7,11 @@ import { GetDetailsAsync } from '../Api/Details/DetailSlice';
 import { GetAllProducts } from '../Api/Products/ProductSlice';
 
 function Home() {
-  const [isVisible, setIsVisible] = useState(false);
   const details = useSelector(state => state.details.detailsReal)
   const productSuccess = useSelector(state => state.products.success)
   const detailsSuccess = useSelector(state => state.details.success)
   const scrollBottom = () => {
     window.scrollTo(0, 500);
-  }
-  const TimerSec = () => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
-    return () => clearTimeout(timer);
   }
   const [videoLoaded, setVideoLoaded] = useState(false)
   const detailsReal = useSelector(state => state.details.detailsReal)
@@ -39,7 +32,6 @@ function Home() {
         setVideoLoaded(true);
       }
     }
-    TimerSec()
   }, [dispatch, videoRef, detailsSuccess])
   return (
     <div className='home' >

@@ -15,8 +15,10 @@ import AdminLogin from './admin/AdminLogin';
 import UpdateDetails from './admin/UpdateDetails';
 import UpdateProduct from './admin/UpdateProduct';
 import Footer from './bars/Footer';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const productSuccess = useSelector(state => state.products.success)
   return (
     <div className="App">
       <SideMenu/>
@@ -34,7 +36,7 @@ function App() {
         <Route path="/admin-panel/update-product/:id" element={<UpdateProduct />} />
         <Route path="/admin-panel/update-details" element={<UpdateDetails />} />
       </Routes>
-      <Footer/>
+     {productSuccess && <Footer/>}
     </div>
   );
 }
