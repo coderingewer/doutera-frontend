@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 
 
 function SideMenu() {
-    const [isOpened, setOpened] = useState(true);
     const handleTogleMenu = () => {
         const linksMenu = document.getElementById("links-menu");
-        setOpened(false)
-        isOpened ? linksMenu.style.display = "flex" : linksMenu.style.display = "none"
+       linksMenu.style.display = "none"
     }
     return (
         <div id='links-menu' className='side-menu' >
