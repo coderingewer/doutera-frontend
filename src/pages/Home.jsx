@@ -35,7 +35,7 @@ function Home() {
     }
   }, [dispatch, videoRef, detailsSuccess])
   return (
-    <div className='home' >
+    < >
       <TopBar page="home-style" />
       {
         videoLoaded &&
@@ -99,7 +99,7 @@ function Home() {
 
       }
       
-    </div>
+    </>
   )
 }
 

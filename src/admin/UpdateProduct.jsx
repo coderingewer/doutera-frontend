@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import {  FieldArray, FormikProvider, useFormik } from 'formik';
+import { FieldArray, FormikProvider, useFormik } from 'formik';
 import "../pages/form.css"
 import "./newproduct.css"
 import { useDispatch } from 'react-redux';
@@ -12,6 +12,17 @@ function UpdateProduct() {
     const params = useParams()
     const dispatch = useDispatch();
     const productReal = useSelector(state => state.products.productReal)
+    const values = {
+        ID: '',
+        name: '',
+        featuresImg: '',
+        featureOne: '',
+        featureTwo: '',
+        featureThree: '',
+        productContainerContent: {},
+        productCarouselItems: [],
+        subProducts: [],
+    }
     const [posted, setPosted] = useState(false)
     const formik = useFormik({
         initialValues: {
@@ -36,7 +47,8 @@ function UpdateProduct() {
     const success = useSelector(state => state.products.success)
     useEffect(() => {
         dispatch(GetProductByIdAsync(params.id))
-        success && formik.setValues(productReal)
+
+        success && productReal !=null && formik.setValues(productReal)
     }, [dispatch, success, formik.setValues])
     return (
         <div className='new-product-page' >
