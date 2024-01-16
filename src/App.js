@@ -13,7 +13,6 @@ import NewProduct from './admin/NewProduct';
 import AdminLogin from './admin/AdminLogin';
 import UpdateDetails from './admin/UpdateDetails';
 import UpdateProduct from './admin/UpdateProduct';
-import { useSelector } from 'react-redux';
 
 function App() {
   return (

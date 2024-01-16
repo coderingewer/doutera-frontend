@@ -71,7 +71,9 @@ function Home() {
         </div >
       }
       {
-        videoLoaded && productSuccess && <Products />
+        videoLoaded && productSuccess ? <Products /> : <div className='loading'>
+          <img src={require("../assets/icons/loading.gif")} alt="loading..." />
+        </div>
 
       }
       {

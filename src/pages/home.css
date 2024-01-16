@@ -89,6 +89,17 @@ video {
   left: 0;
 }
 
+.loading{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading img{
+  width: 100px;
+  height: 100px;
+}
 
 @media only screen and (max-width: 1080px) {
   .home-links {
