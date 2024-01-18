@@ -3,7 +3,7 @@ import "../pages/form.css"
 import "./newproduct.css"
 import { useDispatch, useSelector } from 'react-redux';
 import AdminSideBar from './AdminSideBar';
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import { addProductsAsync } from '../Api/Products/ProductSlice';
 import { Navigate } from 'react-router-dom';
 import { UploadImage, UploadVideo } from '../Api/Cluodinary/UploadFile';
@@ -49,18 +49,20 @@ function NewProduct() {
     setFile(file);
   };
   const handleUpload = (file) => {
-    file == null ?setİnvalidType(true):
-    dispatch(UploadImage(file)) && setİnvalidType(false)
+    file == null ? setİnvalidType(true) :
+      dispatch(UploadImage(file)) && setİnvalidType(false)
 
   }
   const setFormikValue = (value) => {
+
     formik.setFieldValue(value, url)
   }
   const setFormikValueVid = (value) => {
     formik.setFieldValue(value, videoUrl)
   }
-  const handleUploadVideo = async (file, value) => {
-    dispatch(UploadVideo(file))
+  const handleUploadVideo = async (file) => {
+    file == null ? setİnvalidType(true) :
+      dispatch(UploadVideo(file))
   }
   console.log(loading)
   return (
@@ -88,19 +90,22 @@ function NewProduct() {
         />
         <div className="file-upload-container">
           {
-            inValidType && <span style={{color:"red"}} >File not selected</span>
+            inValidType && <span style={{ color: "red" }} >File not selected</span>
           }
-              {
-                loading &&
-                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
-              }
-              {
-                success && <span style={{ color: "green" }} >Uploaded</span>
-              }
-              <input accept=".jpg, .jpeg, .png, .gif" className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
-              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
-              <button type='button' onClick={() => setFormikValue("featuresImg")} >Use Uploaded Image</button>
-            </div>
+          {
+            loading &&
+            <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+          }
+          {
+            success && <span style={{ color: "green" }} >Uploaded</span>
+          }
+          <input accept=".jpg, .jpeg, .png, .gif" className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+          <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
+          {
+            success &&
+            <button type='button' onClick={() => setFormikValue("featuresImg")} >Use Uploaded Image</button>
+          }
+        </div>
         <label htmlFor="name">Feature 1</label>
         <input
           id="featureOne"
@@ -157,15 +162,21 @@ function NewProduct() {
             />
             <div className="file-upload-container">
               {
+                inValidType && <span style={{ color: "red" }} >File not selected</span>
+              }
+              {
                 loading &&
                 <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
               }
               {
                 success && <span style={{ color: "green" }} >Uploaded</span>
               }
-              <input className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+              <input accept=".jpg, .jpeg, .png, .gif" className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
               <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
-              <button type='button' onClick={() => setFormikValue("productCarouselItems[" + `${index}` + "].image")} >Use Uploaded Image</button>
+              {
+                success &&
+                <button type='button' onClick={() => setFormikValue("productCarouselItems[" + `${index}` + "].image")} >Use Uploaded Image</button>
+              }
             </div>
           </div>
         ))}
@@ -199,21 +210,24 @@ function NewProduct() {
             value={formik.values.productContainerContent.videUrl}
           />
           <div className="file-upload-container">
-              {
-                loading &&
-                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
-              }
-              {
-                success && <span style={{ color: "green" }} >Uploaded</span>
-              }
-              <input className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
-              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUploadVideo(file)} >Upload New Video</button>
-              {
-                success &&
+            {
+              inValidType && <span style={{ color: "red" }} >File not selected</span>
+            }
+            {
+              loading &&
+              <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+            }
+            {
+              success && <span style={{ color: "green" }} >Uploaded</span>
+            }
+            <input className='upload-file' accept='.mp4' onChange={(event) => handleFileChange(event)} type="file" />
+            <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUploadVideo(file)} >Upload New Video</button>
+            {
+              success &&
               <button type='button' onClick={() => setFormikValueVid("productContainerContent.videUrl")} >Use Uploaded Video</button>
-              }
-            </div>
-        <label htmlFor="name">Feature 1</label>
+            }
+          </div>
+          <label htmlFor="name">Feature 1</label>
         </div>
         <FormikProvider value={formik}>
           <FieldArray
@@ -254,17 +268,23 @@ function NewProduct() {
                       Remove
                     </button>
                     <div className="file-upload-container">
-              {
-                loading &&
-                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
-              }
-              {
-                success && <span style={{ color: "green" }} >Uploaded</span>
-              }
-              <input className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
-              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
-              <button type='button' onClick={() => setFormikValue("subProducts[" + `${index}` + "].imageUrl")} >Use Uploaded Image</button>
-            </div>
+                      {
+                        inValidType && <span style={{ color: "red" }} >File not selected</span>
+                      }
+                      {
+                        loading &&
+                        <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+                      }
+                      {
+                        success && <span style={{ color: "green" }} >Uploaded</span>
+                      }
+                      <input accept=".jpg, .jpeg, .png, .gif" className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+                      <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
+                      {
+                        success &&
+                        <button type='button' onClick={() => setFormikValue("subProducts[" + `${index}` + "].imageUrl")} >Use Uploaded Image</button>
+                      }
+                    </div>
                   </div>
                 ))}
                 <button style={{ border: "none", color: "blue", backgroundColor: "transparent", padding: "24px" }} type='button' onClick={() => arrayHelpers.push({ title: '', detail: '', imageUrl: '' })}>Add Sub Product</button>

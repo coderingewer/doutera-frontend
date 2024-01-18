@@ -13,6 +13,7 @@ import NewProduct from './admin/NewProduct';
 import AdminLogin from './admin/AdminLogin';
 import UpdateDetails from './admin/UpdateDetails';
 import UpdateProduct from './admin/UpdateProduct';
+import UpdatePassword from './admin/UpdatePassword';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin-panel" element={<AdminPanel />}/>
         <Route path="/admin-panel/login" element={<AdminLogin />}/>
+        <Route path="/admin-panel/update-password" element={<UpdatePassword />}/>
         <Route path="/admin-panel/products" element={<ProductsOn />} />
         <Route path="/admin-panel/dealership-requests" element={<DealershipRequests />} />
         <Route path="/admin-panel/new-product" element={<NewProduct />} />
