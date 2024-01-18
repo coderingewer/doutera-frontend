@@ -1,16 +1,23 @@
-import {  FieldArray, FormikProvider, useFormik } from 'formik';
+import { FieldArray, FormikProvider, useFormik } from 'formik';
 import "../pages/form.css"
 import "./newproduct.css"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AdminSideBar from './AdminSideBar';
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { addProductsAsync } from '../Api/Products/ProductSlice';
 import { Navigate } from 'react-router-dom';
+import { UploadImage, UploadVideo } from '../Api/Cluodinary/UploadFile';
 
 function NewProduct() {
   const dispatch = useDispatch();
   const subProduct = [{ title: '', detail: '', imageUrl: '' }]
   const [posted, setPosted] = useState(false)
+  const url = useSelector(state => state.fileUpload.url)
+  const videoUrl = useSelector(state => state.fileUpload.videoUrl)
+  const success = useSelector(state => state.fileUpload.success)
+  const loading = useSelector(state => state.fileUpload.loading)
+  const [inValidType, setİnvalidType] = useState(false)
+
 
   const formik = useFormik({
     initialValues: {
@@ -31,10 +38,31 @@ function NewProduct() {
     onSubmit: async () => {
       await dispatch(
         addProductsAsync(formik.values)
-        );
-        setPosted(true)
+      );
+      setPosted(true)
     },
   });
+  const [file, setFile] = useState(null)
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    console.log(event.target.files[0])
+    setFile(file);
+  };
+  const handleUpload = (file) => {
+    file == null ?setİnvalidType(true):
+    dispatch(UploadImage(file)) && setİnvalidType(false)
+
+  }
+  const setFormikValue = (value) => {
+    formik.setFieldValue(value, url)
+  }
+  const setFormikValueVid = (value) => {
+    formik.setFieldValue(value, videoUrl)
+  }
+  const handleUploadVideo = async (file, value) => {
+    dispatch(UploadVideo(file))
+  }
+  console.log(loading)
   return (
     <div className='new-product-page' >
       <AdminSideBar />
@@ -58,6 +86,21 @@ function NewProduct() {
           onChange={formik.handleChange}
           value={formik.values.featuresImg}
         />
+        <div className="file-upload-container">
+          {
+            inValidType && <span style={{color:"red"}} >File not selected</span>
+          }
+              {
+                loading &&
+                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+              }
+              {
+                success && <span style={{ color: "green" }} >Uploaded</span>
+              }
+              <input accept=".jpg, .jpeg, .png, .gif" className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
+              <button type='button' onClick={() => setFormikValue("featuresImg")} >Use Uploaded Image</button>
+            </div>
         <label htmlFor="name">Feature 1</label>
         <input
           id="featureOne"
@@ -84,7 +127,7 @@ function NewProduct() {
         />
 
         {formik.values.productCarouselItems.map((item, index) => (
-          <div style={{ textAlign: "left" }} key={index}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left" }} key={index}>
             <h3>Product Carousel Item {index + 1}</h3>
             <label>Title</label>
             <input
@@ -112,6 +155,18 @@ function NewProduct() {
               onChange={formik.handleChange}
               value={formik.values.productCarouselItems[index].image}
             />
+            <div className="file-upload-container">
+              {
+                loading &&
+                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+              }
+              {
+                success && <span style={{ color: "green" }} >Uploaded</span>
+              }
+              <input className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
+              <button type='button' onClick={() => setFormikValue("productCarouselItems[" + `${index}` + "].image")} >Use Uploaded Image</button>
+            </div>
           </div>
         ))}
         <div style={{ textAlign: "left" }} >
@@ -143,6 +198,22 @@ function NewProduct() {
             onChange={formik.handleChange}
             value={formik.values.productContainerContent.videUrl}
           />
+          <div className="file-upload-container">
+              {
+                loading &&
+                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+              }
+              {
+                success && <span style={{ color: "green" }} >Uploaded</span>
+              }
+              <input className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUploadVideo(file)} >Upload New Video</button>
+              {
+                success &&
+              <button type='button' onClick={() => setFormikValueVid("productContainerContent.videUrl")} >Use Uploaded Video</button>
+              }
+            </div>
+        <label htmlFor="name">Feature 1</label>
         </div>
         <FormikProvider value={formik}>
           <FieldArray
@@ -182,6 +253,18 @@ function NewProduct() {
                     <button style={{ border: "none", color: "red", backgroundColor: "transparent", padding: "24px" }} type="button" onClick={() => arrayHelpers.remove(index)}>
                       Remove
                     </button>
+                    <div className="file-upload-container">
+              {
+                loading &&
+                <img style={{ width: "48px" }} src={require("../assets/icons/loading.gif")} alt="" />
+              }
+              {
+                success && <span style={{ color: "green" }} >Uploaded</span>
+              }
+              <input className='upload-file' onChange={(event) => handleFileChange(event)} type="file" />
+              <button disabled={loading ? true : false} className='upload-btn' type='button' onClick={() => handleUpload(file)} >Upload New Image</button>
+              <button type='button' onClick={() => setFormikValue("subProducts[" + `${index}` + "].imageUrl")} >Use Uploaded Image</button>
+            </div>
                   </div>
                 ))}
                 <button style={{ border: "none", color: "blue", backgroundColor: "transparent", padding: "24px" }} type='button' onClick={() => arrayHelpers.push({ title: '', detail: '', imageUrl: '' })}>Add Sub Product</button>
@@ -192,7 +275,7 @@ function NewProduct() {
         </FormikProvider>
         <button className='form-form-btn' type="submit">Submit</button>
       </form>
-      {posted && <Navigate to="/admin-panel" replace={true}  />}
+      {posted && <Navigate to="/admin-panel" replace={true} />}
     </div>
   )
 }

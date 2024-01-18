@@ -76,6 +76,21 @@
     width: 100%;
 }
 
+.file-upload-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+.file-upload-container button{
+    border: none;
+    background-color: var(--color-1);
+    color: var(--color-2);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 8px;
+}
+
 
 @media only screen and (min-width: 1080px) {
    
@@ -90,3 +105,4 @@
         width: 70%;
     }
     }
+
