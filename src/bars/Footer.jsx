@@ -16,6 +16,10 @@ function Footer() {
         <Link to="/contact">Contact</Link>
         <Link to="/about-us">About Us</Link>
         <a href={detailsReal.markerurl} >Buy Now</a>
+        <a href={detailsReal.markerurl} >Facebook</a>
+        <a href={detailsReal.markerurl} >Instagram</a>
+        <a href={detailsReal.markerurl} >Youtube</a>
+
     </div>
   )
 }
