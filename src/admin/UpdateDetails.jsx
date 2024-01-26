@@ -24,6 +24,9 @@ function UpdateDetails() {
             address: details.address,
             email: details.email,
             markerurl: details.markerurl,
+            facebook: details.Facebook,
+            instagram: details.instagram,
+            youtube: details.youtube,
             homeVideo: details.homeVideo,
             contactPageImageUrl: details.contactPageImageUrl,
             homeSubTitle: details.homeSubTitle,
@@ -91,6 +94,27 @@ function UpdateDetails() {
                     name="markerurl"
                     onChange={formik.handleChange}
                     value={formik.values.markerurl}
+                />
+                   <label htmlFor="name">Instagram Url</label>
+                <input
+                    id="instagram"
+                    name="instagram"
+                    onChange={formik.handleChange}
+                    value={formik.values.instagram}
+                />
+                      <label htmlFor="name">Youtube Url</label>
+                <input
+                    id="youtube"
+                    name="youtube"
+                    onChange={formik.handleChange}
+                    value={formik.values.youtube}
+                />
+                 <label htmlFor="name">Facebook Url</label>
+                <input
+                    id="facebook"
+                    name="facebook"
+                    onChange={formik.handleChange}
+                    value={formik.values.facebook}
                 />
                 <label htmlFor="name">Address</label>
                 <textarea
